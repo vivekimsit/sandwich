@@ -1,0 +1,19 @@
+input CreateAmenityInput {
+  id: ID!
+}
+
+input CreateRoomInput {
+  hotelId: ID!
+  name: String!
+  picture: Upload
+  category: String!
+  description: String!
+  price: Int!
+  beds: Int!
+  guests: Int!
+  amenities: [CreateAmenityInput!]!
+}
+
+type Mutation {
+  createRoom(input: CreateRoomInput!): Boolean!
+}
