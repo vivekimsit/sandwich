@@ -12,7 +12,6 @@ type Room {
   price: Int!
   beds: Int!
   guests: Int!
-  amenities: [String!]!
   pictureUrl: String!
   hotel: Hotel!
   amenities: [Amenity!]!
