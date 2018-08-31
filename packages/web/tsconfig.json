@@ -13,12 +13,14 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
-    "noImplicitAny": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "types": ["jest", "node", "react", "react-dom", "react-router-dom"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@sandwich/*": ["./*/src"]
+    }
   },
   "exclude": [
     "node_modules",

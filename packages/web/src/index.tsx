@@ -4,12 +4,12 @@ import { ApolloProvider } from "react-apollo";
 
 import registerServiceWorker from "./registerServiceWorker";
 import { client } from "./apollo";
-import { Routes } from "./routes";
 import "./index.css";
+import App from "./App";
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <Routes />
+    <App />
   </ApolloProvider>,
   document.getElementById("root") as HTMLElement
 );
