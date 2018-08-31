@@ -19,7 +19,7 @@ export const findHotelsQuery = gql`
 `;
 
 export interface WithFindHotels {
-  listings: FindHotelsQuery_findHotels[];
+  hotels: FindHotelsQuery_findHotels[];
   loading: boolean;
 }
 
@@ -30,14 +30,14 @@ export const withFindHotels: any = graphql<
   WithFindHotels
 >(findHotelsQuery, {
   props: ({ data }) => {
-    let listings: FindHotelsQuery_findHotels[] = [];
+    let hotels: FindHotelsQuery_findHotels[] = [];
 
     if (data && !data.loading && data.findHotels) {
-      listings = data.findHotels;
+      hotels = data.findHotels;
     }
 
     return {
-      listings,
+      hotels,
       loading: data ? data.loading : false
     };
   }

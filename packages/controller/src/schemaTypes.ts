@@ -62,6 +62,33 @@ export interface RegisterMutationVariables {
 /* tslint:disable */
 // This file was automatically generated and should not be edited.
 
+// ====================================================
+// GraphQL query operation: ViewHotelQuery
+// ====================================================
+
+export interface ViewHotelQuery_viewHotel_owner {
+  id: string;
+  email: string;
+}
+
+export interface ViewHotelQuery_viewHotel {
+  id: string;
+  name: string;
+  description: string;
+  owner: ViewHotelQuery_viewHotel_owner;
+}
+
+export interface ViewHotelQuery {
+  viewHotel: ViewHotelQuery_viewHotel | null;
+}
+
+export interface ViewHotelQueryVariables {
+  id: string;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
