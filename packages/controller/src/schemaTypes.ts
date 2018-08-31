@@ -13,7 +13,6 @@ export interface CreateHotelMutationVariables {
   picture?: any | null;
   name: string;
   description: string;
-  address: AddressInput;
 }
 
 /* tslint:disable */
@@ -66,19 +65,6 @@ export interface RegisterMutationVariables {
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
-
-export interface AddressInput {
-  lat: number;
-  lng: number;
-  line1?: string | null;
-  line2?: string | null;
-  city?: string | null;
-  state?: string | null;
-  country?: string | null;
-  type?: string | null;
-  zip?: string | null;
-  formattedAddress?: string | null;
-}
 
 //==============================================================
 // END Enums and Input Objects

@@ -1,17 +1,15 @@
 import * as React from "react";
 import { RouteComponentProps } from "react-router-dom";
 import { FormikActions } from "formik";
-import { withCreateListing, WithCreateListing } from "@sandwich/controller";
+import { withCreateHotel, WithCreateHotel } from "@sandwich/controller";
 import { HotelFormValues, HotelForm } from "../shared/HotelForm";
 
-class C extends React.PureComponent<
-  RouteComponentProps<{}> & WithCreateListing
-> {
+class C extends React.PureComponent<RouteComponentProps<{}> & WithCreateHotel> {
   submit = async (
     values: HotelFormValues,
     { setSubmitting }: FormikActions<HotelFormValues>
   ) => {
-    await this.props.createListing(values);
+    await this.props.createHotel(values);
     setSubmitting(false);
   };
 
@@ -20,4 +18,4 @@ class C extends React.PureComponent<
   }
 }
 
-export const CreateListingConnector = withCreateListing(C);
+export const CreateHotelConnector = withCreateHotel(C);

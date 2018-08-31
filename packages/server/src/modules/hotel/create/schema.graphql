@@ -17,7 +17,7 @@ input CreateHotelInput {
   name: String!
   description: String!
   picture: Upload
-  address: AddressInput!
+  address: AddressInput
 }
 
 type Mutation {

@@ -48,7 +48,7 @@ const registerMutation = gql`
   }
 `;
 
-export const RegisterController = graphql<
+export const RegisterController: any = graphql<
   Props,
   RegisterMutation,
   RegisterMutationVariables

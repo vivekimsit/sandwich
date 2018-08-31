@@ -23,7 +23,7 @@ export interface WithFindHotels {
   loading: boolean;
 }
 
-export const withFindListings = graphql<
+export const withFindHotels: any = graphql<
   any,
   FindHotelsQuery,
   {},

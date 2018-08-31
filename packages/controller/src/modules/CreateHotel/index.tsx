@@ -13,24 +13,18 @@ export const createHotelMutation = gql`
     $picture: Upload
     $name: String!
     $description: String!
-    $address: AddressInput!
   ) {
     createHotel(
-      input: {
-        picture: $picture
-        name: $name
-        description: $description
-        address: $address
-      }
+      input: { picture: $picture, name: $name, description: $description }
     )
   }
 `;
 
 export interface WithCreateHotel {
-  createListing: (variables: CreateHotelMutationVariables) => void;
+  createHotel: (variables: CreateHotelMutationVariables) => void;
 }
 
-export const withCreateListing = graphql<
+export const withCreateHotel: any = graphql<
   any,
   CreateHotelMutation,
   CreateHotelMutationVariables,
