@@ -4,31 +4,31 @@ import { RouteComponentProps, Link } from "react-router-dom";
 
 export class ViewHotelConnector extends React.PureComponent<
   RouteComponentProps<{
-    listingId: string;
+    hotelId: string;
   }>
 > {
   render() {
     const {
       match: {
-        params: { listingId }
+        params: { hotelId }
       }
     } = this.props;
     return (
-      <ViewHotel listingId={listingId}>
+      <ViewHotel hotelId={hotelId}>
         {(data: any) => {
           console.log(data);
-          if (!data.listing) {
+          if (!data.hotel) {
             return <div>...loading</div>;
           }
 
           return (
             <div>
-              <div>{data.listing.name}</div>
+              <div>{data.hotel.name}</div>
               <div>
-                <Link to={`/listing/${listingId}/chat`}>chat</Link>
+                <Link to={`/hotel/${hotelId}/chat`}>chat</Link>
               </div>
               <div>
-                <Link to={`/listing/${listingId}/edit`}>edit</Link>
+                <Link to={`/hotel/${hotelId}/edit`}>edit</Link>
               </div>
             </div>
           );
