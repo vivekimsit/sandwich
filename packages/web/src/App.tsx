@@ -6,6 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import Drawer from "@material-ui/core/Drawer";
 import MenuItem from "@material-ui/core/MenuItem";
 import Divider from "@material-ui/core/Divider";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
 
 import { Routes } from "./routes";
 
@@ -20,20 +22,32 @@ class App extends React.Component<any, AppState> {
     isLoggedIn: false
   };
 
-  openMenu = _ => this.setState({ menuOpen: !this.state.menuOpen });
+  toggleMenu = _ => this.setState({ menuOpen: !this.state.menuOpen });
 
   public render() {
+    const { menuOpen } = this.state;
     return (
       <Router>
         <div className="App">
           <AppBar position="absolute">
-            <Toolbar>
+            <Toolbar disableGutters={!menuOpen}>
+              <IconButton
+                color="inherit"
+                aria-label="Menu"
+                onClick={this.toggleMenu}
+              >
+                <MenuIcon />
+              </IconButton>
               <Typography variant="title" color="inherit">
                 YABI
               </Typography>
             </Toolbar>
           </AppBar>
-          <Drawer variant="permanent">
+          <Drawer
+            open={menuOpen}
+            onClose={this.toggleMenu}
+            style={{ position: "relative", width: "250px" }}
+          >
             <Link to="/register">
               <MenuItem>Dashboard</MenuItem>
             </Link>
@@ -43,7 +57,9 @@ class App extends React.Component<any, AppState> {
             </Link>
             <Divider />
           </Drawer>
-          <Routes />
+          <main>
+            <Routes />
+          </main>
         </div>
       </Router>
     );
