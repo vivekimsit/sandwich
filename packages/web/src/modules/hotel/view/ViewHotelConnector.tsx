@@ -1,6 +1,8 @@
 import * as React from "react";
+import Button from "@material-ui/core/Button";
 import { ViewHotel } from "@sandwich/controller";
 import { RouteComponentProps, Link } from "react-router-dom";
+import Typography from "@material-ui/core/Typography";
 
 export class ViewHotelConnector extends React.PureComponent<
   RouteComponentProps<{
@@ -21,14 +23,23 @@ export class ViewHotelConnector extends React.PureComponent<
             return <div>...loading</div>;
           }
 
+          const { hotel } = data;
           return (
-            <div>
-              <div>{data.hotel.name}</div>
+            <div
+              style={{ margin: 100, display: "flex", flexDirection: "column" }}
+            >
               <div>
-                <Link to={`/hotel/${hotelId}/chat`}>chat</Link>
+                <Typography variant="headline">{hotel.name}</Typography>
               </div>
               <div>
-                <Link to={`/hotel/${hotelId}/edit`}>edit</Link>
+                <Typography variant="subheading">
+                  {hotel.description}
+                </Typography>
+              </div>
+              <div>
+                <Link to={`/hotel/${hotelId}/edit`}>
+                  <Button>Edit</Button>
+                </Link>
               </div>
             </div>
           );

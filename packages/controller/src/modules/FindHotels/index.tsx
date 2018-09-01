@@ -10,6 +10,7 @@ export const findHotelsQuery = gql`
       id
       name
       thumbnailUrl
+      description
       owner {
         id
         email

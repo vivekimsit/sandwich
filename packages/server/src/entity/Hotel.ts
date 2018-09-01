@@ -32,9 +32,6 @@ export class Hotel extends BaseEntity {
   @Column("varchar", { length: 255 })
   description: string;
 
-  @Column("uuid")
-  userId: string;
-
   @ManyToOne(() => User, user => user.hotels)
   user: User;
 

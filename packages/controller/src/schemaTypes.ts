@@ -31,7 +31,8 @@ export interface FindHotelsQuery_findHotels {
   id: string;
   name: string;
   thumbnailUrl: string;
-  owner: FindHotelsQuery_findHotels_owner;
+  description: string;
+  owner: FindHotelsQuery_findHotels_owner | null;
 }
 
 export interface FindHotelsQuery {
@@ -75,7 +76,7 @@ export interface ViewHotelQuery_viewHotel {
   id: string;
   name: string;
   description: string;
-  owner: ViewHotelQuery_viewHotel_owner;
+  owner: ViewHotelQuery_viewHotel_owner | null;
 }
 
 export interface ViewHotelQuery {

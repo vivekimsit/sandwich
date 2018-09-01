@@ -10,27 +10,60 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
 
-const MyLink = props => <Link to="/create-hotel" {...props} />;
+const MyLink = props => <Link to="/hotel/create" {...props} />;
 
 class C extends React.PureComponent<WithFindHotels> {
   render() {
     const { hotels, loading } = this.props;
+    console.log(hotels);
     return (
-      <div>
+      <div
+        style={{
+          margin: "100px 100px",
+          display: "flex",
+          justifyContent: "space-around"
+        }}
+      >
         {loading && <div>...loading</div>}
         {hotels.map((h: any) => (
-          <Card key={`${h.id}-card`}>
-            <div>
-              <CardContent>
+          <Card
+            key={`${h.id}-card`}
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              width: 500
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column"
+              }}
+            >
+              <CardContent style={{ flex: "1 0 auto" }}>
                 <Typography variant="headline">{h.name}</Typography>
+                <Typography variant="subheading">{h.description}</Typography>
               </CardContent>
-              <div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  paddingLeft: "10px",
+                  paddingBottom: "10px"
+                }}
+              >
                 <IconButton aria-label="Play/pause">
-                  <PlayArrowIcon />
+                  <Link to={`/hotels/${h.id}`}>
+                    <PlayArrowIcon />
+                  </Link>
                 </IconButton>
               </div>
             </div>
-            <CardMedia image={h.pictureUrl} title={h.name} />
+            <CardMedia
+              style={{ width: 151, height: 151 }}
+              image={h.thumbnailUrl}
+              title={h.name}
+            />
           </Card>
         ))}
         <Button

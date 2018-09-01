@@ -1,12 +1,9 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
 import { Form as AntForm, Button } from "antd";
 import { Form, Formik, FormikActions } from "formik";
 import { ImageFile } from "react-dropzone";
 
 import { Page1 } from "./ui/Page1";
-import { Page2 } from "./ui/Page2";
-import { Page3 } from "./ui/Page3";
 
 const FormItem = AntForm.Item;
 
@@ -29,9 +26,6 @@ interface Props {
   ) => Promise<void>;
 }
 
-// tslint:disable-next-line:jsx-key
-const pages = [<Page1 />, <Page2 />, <Page3 />];
-
 export const defaultHotelFormValues = {
   pictureUrl: null,
   picture: null,
@@ -40,12 +34,6 @@ export const defaultHotelFormValues = {
 };
 
 export class HotelForm extends React.PureComponent<Props, State> {
-  state = {
-    page: 0
-  };
-
-  nextPage = () => this.setState(state => ({ page: state.page + 1 }));
-
   render() {
     const { submit, initialValues = defaultHotelFormValues } = this.props;
 
@@ -57,9 +45,8 @@ export class HotelForm extends React.PureComponent<Props, State> {
         {({ isSubmitting, values }) =>
           console.log(values) || (
             <Form style={{ display: "flex" }}>
-              <Link to="/logout">logout</Link>
-              <div style={{ width: 400, margin: "auto" }}>
-                {pages[this.state.page]}
+              <div style={{ width: 400, margin: "100px auto" }}>
+                <Page1 />
                 <FormItem>
                   <div
                     style={{
@@ -67,21 +54,13 @@ export class HotelForm extends React.PureComponent<Props, State> {
                       justifyContent: "flex-end"
                     }}
                   >
-                    {this.state.page === pages.length - 1 ? (
-                      <div>
-                        <Button
-                          type="primary"
-                          htmlType="submit"
-                          disabled={isSubmitting}
-                        >
-                          create hotel
-                        </Button>
-                      </div>
-                    ) : (
-                      <Button type="primary" onClick={this.nextPage}>
-                        next page
-                      </Button>
-                    )}
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      disabled={isSubmitting}
+                    >
+                      Create Hotel
+                    </Button>
                   </div>
                 </FormItem>
               </div>
