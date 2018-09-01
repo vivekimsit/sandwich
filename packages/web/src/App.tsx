@@ -48,7 +48,7 @@ class App extends React.Component<any, AppState> {
             onClose={this.toggleMenu}
             style={{ position: "relative", width: "250px" }}
           >
-            <Link to="/register">
+            <Link to="/dashboard">
               <MenuItem>Dashboard</MenuItem>
             </Link>
             <Divider />
