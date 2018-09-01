@@ -10,6 +10,7 @@ import NotFound from "../modules/NotFound";
 
 export const Routes = () => (
   <Switch>
+    <Route exact={true} path="/" component={RegisterConnector} />
     <Route exact={true} path="/register" component={RegisterConnector} />
     <Route exact={true} path="/login" component={LoginConnector} />
     <Route exact={true} path="/dashboard" component={RegisterConnector} />

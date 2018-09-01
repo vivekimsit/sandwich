@@ -6,9 +6,8 @@ import { Link } from "react-router-dom";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import CardActions from "@material-ui/core/CardActions";
 
 const MyLink = props => <Link to="/hotel/create" {...props} />;
 
@@ -21,7 +20,8 @@ class C extends React.PureComponent<WithFindHotels> {
         style={{
           margin: "100px 100px",
           display: "flex",
-          justifyContent: "space-around"
+          flexDirection: "column",
+          alignItems: "center"
         }}
       >
         {loading && <div>...loading</div>}
@@ -30,8 +30,9 @@ class C extends React.PureComponent<WithFindHotels> {
             key={`${h.id}-card`}
             style={{
               display: "flex",
+              margin: 10,
               justifyContent: "space-between",
-              width: 500
+              width: 600
             }}
           >
             <div
@@ -44,20 +45,11 @@ class C extends React.PureComponent<WithFindHotels> {
                 <Typography variant="headline">{h.name}</Typography>
                 <Typography variant="subheading">{h.description}</Typography>
               </CardContent>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  paddingLeft: "10px",
-                  paddingBottom: "10px"
-                }}
-              >
-                <IconButton aria-label="Play/pause">
-                  <Link to={`/hotels/${h.id}`}>
-                    <PlayArrowIcon />
-                  </Link>
-                </IconButton>
-              </div>
+              <CardActions>
+                <Link to={`/hotels/${h.id}`}>
+                  <Button size="small">Learn More</Button>
+                </Link>
+              </CardActions>
             </div>
             <CardMedia
               style={{ width: 151, height: 151 }}
@@ -71,7 +63,7 @@ class C extends React.PureComponent<WithFindHotels> {
           color="secondary"
           component={MyLink}
           style={{
-            position: "absolute",
+            position: "fixed",
             bottom: 10 * 2,
             right: 10 * 2
           }}

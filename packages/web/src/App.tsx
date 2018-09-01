@@ -7,6 +7,7 @@ import Drawer from "@material-ui/core/Drawer";
 import MenuItem from "@material-ui/core/MenuItem";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
+import Button from "@material-ui/core/Button";
 import MenuIcon from "@material-ui/icons/Menu";
 
 import { Routes } from "./routes";
@@ -29,7 +30,7 @@ class App extends React.Component<any, AppState> {
     return (
       <Router>
         <div className="App">
-          <AppBar position="absolute">
+          <AppBar position="static" style={{ marginBottom: 20 }}>
             <Toolbar disableGutters={!menuOpen}>
               <IconButton
                 color="inherit"
@@ -38,9 +39,14 @@ class App extends React.Component<any, AppState> {
               >
                 <MenuIcon />
               </IconButton>
-              <Typography variant="title" color="inherit">
+              <Typography
+                variant="title"
+                color="inherit"
+                style={{ flexGrow: 1 }}
+              >
                 YABI
               </Typography>
+              <Button color="inherit">Login</Button>
             </Toolbar>
           </AppBar>
           <Drawer
