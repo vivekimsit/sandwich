@@ -18,7 +18,6 @@ class C extends React.PureComponent<WithFindHotels> {
     return (
       <div
         style={{
-          margin: "100px 100px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center"
