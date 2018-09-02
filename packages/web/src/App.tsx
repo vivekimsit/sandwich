@@ -37,10 +37,12 @@ const styles = (theme: Theme) =>
       width: drawerWidth
     },
     content: {
-      flexGrow: 1,
+      display: "flex",
+      flex: 1,
       backgroundColor: theme.palette.background.default,
       padding: theme.spacing.unit * 3,
-      minWidth: 0 // So the Typography noWrap works
+      overflow: "auto",
+      justifyContent: "center"
     },
     toolbar: theme.mixins.toolbar
   });

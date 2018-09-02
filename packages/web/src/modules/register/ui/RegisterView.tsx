@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Form, Icon, Input, Button } from "antd";
 import { withFormik, FormikErrors, FormikProps } from "formik";
+import { Link } from "react-router-dom";
 
 const FormItem = Form.Item;
 
@@ -55,7 +56,7 @@ class C extends React.PureComponent<FormikProps<FormValues> & Props> {
             </Button>
           </FormItem>
           <FormItem>
-            Or <a href="">login now!</a>
+            Or <Link to="/login">Login</Link>
           </FormItem>
         </div>
       </form>

@@ -16,13 +16,7 @@ class C extends React.PureComponent<WithFindHotels> {
     const { hotels, loading } = this.props;
     console.log(hotels);
     return (
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center"
-        }}
-      >
+      <div>
         {loading && <div>...loading</div>}
         {hotels.map((h: any) => (
           <Card
@@ -30,10 +24,14 @@ class C extends React.PureComponent<WithFindHotels> {
             style={{
               display: "flex",
               margin: 10,
-              justifyContent: "space-between",
               width: 600
             }}
           >
+            <CardMedia
+              style={{ width: 151, height: 151 }}
+              image={h.thumbnailUrl}
+              title={h.name}
+            />
             <div
               style={{
                 display: "flex",
@@ -50,11 +48,6 @@ class C extends React.PureComponent<WithFindHotels> {
                 </Link>
               </CardActions>
             </div>
-            <CardMedia
-              style={{ width: 151, height: 151 }}
-              image={h.thumbnailUrl}
-              title={h.name}
-            />
           </Card>
         ))}
         <Button
