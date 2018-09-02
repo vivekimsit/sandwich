@@ -47,7 +47,7 @@ class C extends React.PureComponent<WithFindHotels> {
               </CardContent>
               <CardActions>
                 <Link to={`/hotels/${h.id}`}>
-                  <Button size="small">Learn More</Button>
+                  <Button size="small">View Details</Button>
                 </Link>
               </CardActions>
             </div>

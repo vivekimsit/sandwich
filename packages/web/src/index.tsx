@@ -7,12 +7,14 @@ import { client } from "./apollo";
 import "./index.css";
 import App from "./App";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 const theme = createMuiTheme();
 
 ReactDOM.render(
   <ApolloProvider client={client}>
     <MuiThemeProvider theme={theme}>
+      <CssBaseline />
       <App />
     </MuiThemeProvider>
   </ApolloProvider>,

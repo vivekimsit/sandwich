@@ -30,7 +30,7 @@ class App extends React.Component<any, AppState> {
     return (
       <Router>
         <div className="App">
-          <AppBar position="static" style={{ marginBottom: 20 }}>
+          <AppBar position="static">
             <Toolbar disableGutters={!menuOpen}>
               <IconButton
                 color="inherit"

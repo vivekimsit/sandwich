@@ -102,6 +102,7 @@ export interface ViewHotelQuery_viewHotel {
   id: string;
   name: string;
   description: string;
+  thumbnailUrl: string;
   owner: ViewHotelQuery_viewHotel_owner | null;
 }
 
