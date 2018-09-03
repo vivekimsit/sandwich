@@ -1,6 +1,6 @@
 import { ResolverMap } from "../../../types/graphql-utils";
 import { Hotel } from "../../../entity/Hotel";
-import { processUpload } from "../shared/processUpload";
+import { processUpload } from "../../shared/processUpload";
 import { getConnection } from "typeorm";
 
 export const resolvers: ResolverMap = {
