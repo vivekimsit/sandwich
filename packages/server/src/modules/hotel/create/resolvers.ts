@@ -2,7 +2,7 @@ import { ResolverMap } from "../../../types/graphql-utils";
 
 import { Hotel } from "../../../entity/Hotel";
 import { Address } from "../../../entity/Address";
-import { processUpload } from "../shared/pictureUpload";
+import { processUpload } from "../shared/processUpload";
 
 export const resolvers: ResolverMap = {
   Mutation: {
