@@ -30,7 +30,7 @@ export class HotelView extends React.PureComponent<Props> {
   render() {
     const { hotel } = this.props;
     return (
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
         <CardMedia
           style={{ width: "100%", height: 300 }}
           image={hotel.thumbnailUrl}
