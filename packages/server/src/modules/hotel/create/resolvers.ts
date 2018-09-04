@@ -13,11 +13,6 @@ export const resolvers: ResolverMap = {
     ) => {
       const thumbnailUrl = picture ? await processUpload(picture) : null;
 
-      if (address) {
-        const address = Address.create({ ...data.address });
-        await address.save();
-      }
-
       const hotel = Hotel.create({
         ...data,
         thumbnailUrl,

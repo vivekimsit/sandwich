@@ -38,7 +38,7 @@ export class Hotel extends BaseEntity {
   @OneToMany(() => Room, room => room.hotel)
   rooms: Room[];
 
-  @OneToOne(() => Address)
+  @OneToOne(() => Address, { cascade: true })
   @JoinColumn()
   address: Address;
 
