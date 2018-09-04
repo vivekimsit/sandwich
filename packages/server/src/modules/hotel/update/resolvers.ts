@@ -5,7 +5,7 @@ import { getConnection } from "typeorm";
 
 export const resolvers: ResolverMap = {
   Mutation: {
-    updateListing: async (_, { hotelId, input: { picture, ...data } }) => {
+    updateHotel: async (_, { hotelId, input: { picture, ...data } }) => {
       if (picture) {
         data.thumbnailUrl = await processUpload(picture);
       }

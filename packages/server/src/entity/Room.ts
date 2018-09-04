@@ -28,7 +28,7 @@ export class Room extends BaseEntity {
   number: number;
 
   @Column("text")
-  pictureUrl: string;
+  thumbnailUrl: string;
 
   @Column("varchar", { length: 255 })
   description: string;
@@ -45,13 +45,13 @@ export class Room extends BaseEntity {
   @Column("int")
   guests: number;
 
-  @Column("uuid")
+  @Column({ nullable: true }) // in case hotel id is needed without loading hotel relation
   hotelId: string;
 
   @ManyToOne(() => Hotel, hotel => hotel.rooms)
   hotel: Hotel;
 
-  @ManyToMany(() => Amenity)
+  @ManyToMany(() => Amenity, { eager: true })
   @JoinTable()
   amenities: Amenity[];
 

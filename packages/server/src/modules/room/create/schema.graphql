@@ -11,7 +11,7 @@ input CreateRoomInput {
   price: Int!
   beds: Int!
   guests: Int!
-  amenities: [CreateAmenityInput!]!
+  amenities: [CreateAmenityInput!]
 }
 
 type Mutation {

@@ -6,6 +6,7 @@ type Amenity {
 
 type Room {
   id: ID!
+  hotelId: String
   name: String!
   category: String!
   description: String!
@@ -14,7 +15,7 @@ type Room {
   guests: Int!
   pictureUrl: String!
   hotel: Hotel!
-  amenities: [Amenity!]!
+  amenities: [Amenity!]
 }
 
 type Query {

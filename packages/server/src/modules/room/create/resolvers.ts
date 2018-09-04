@@ -9,11 +9,11 @@ export const resolvers: ResolverMap = {
       { input: { picture, amenities, ...data } },
       { session }
     ) => {
-      const pictureUrl = picture ? await processUpload(picture) : null;
+      const thumbnailUrl = picture ? await processUpload(picture) : null;
 
       const room = Room.create({
         ...data,
-        pictureUrl
+        thumbnailUrl
       });
 
       room.amenities = amenities;

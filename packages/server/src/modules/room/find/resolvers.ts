@@ -3,9 +3,8 @@ import { Room } from "../../../entity/Room";
 
 export const resolvers: ResolverMap = {
   Room: {
-    pictureUrl: (parent, _, { url }) =>
-      parent.pictureUrl && `${url}/images/${parent.pictureUrl}`,
-    hotel: ({ hotelId }, _) => Room.findOne({ hotelId })
+    thumbnailUrl: (parent, _, { url }) =>
+      parent.thumbnailUrl && `${url}/images/${parent.thumbnailUrl}`
   },
   Query: {
     findRooms: async () => {
