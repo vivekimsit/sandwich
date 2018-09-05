@@ -1,3 +1,7 @@
+input UpdateAmenityInput {
+  id: ID!
+}
+
 input UpdateRoomInput {
   name: String
   hotelId: String
@@ -5,9 +9,9 @@ input UpdateRoomInput {
   thumbnailUrl: String
   category: String
   description: String
-  amenities: [Amenity!]
+  amenities: [UpdateAmenityInput!]
 }
 
 type Mutation {
-  updateHotel(roomId: String!, input: UpdateRoomInput!): Boolean!
+  updateRoom(roomId: String!, input: UpdateRoomInput!): Boolean!
 }

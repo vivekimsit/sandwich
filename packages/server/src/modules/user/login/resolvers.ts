@@ -30,12 +30,10 @@ export const resolvers: ResolverMap = {
       }
 
       if (!user.confirmed) {
-        return [
-          {
-            path: "email",
-            message: confirmEmailError
-          }
-        ];
+        console.log({
+          path: "email",
+          message: confirmEmailError
+        });
       }
 
       if (user.forgotPasswordLocked) {
@@ -49,6 +47,7 @@ export const resolvers: ResolverMap = {
 
       const valid = await bcrypt.compare(password, user.password);
 
+      console.log("Valid?", valid);
       if (!valid) {
         return errorResponse;
       }
@@ -59,7 +58,7 @@ export const resolvers: ResolverMap = {
         await redis.lpush(`${userSessionIdPrefix}${user.id}`, req.sessionID);
       }
 
-      return null;
+      return { sessionId: req.sessionID };
     }
   }
 };

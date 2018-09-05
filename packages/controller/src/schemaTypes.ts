@@ -90,6 +90,22 @@ export interface RegisterMutationVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: UpdateHotelMutation
+// ====================================================
+
+export interface UpdateHotelMutation {
+  updateHotel: boolean;
+}
+
+export interface UpdateHotelMutationVariables {
+  hotelId: string;
+  input: UpdateHotelInput;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: ViewHotelQuery
 // ====================================================
 
@@ -120,6 +136,28 @@ export interface ViewHotelQueryVariables {
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
+
+export interface UpdateAddressInput {
+  lat: number;
+  lng: number;
+  line1?: string | null;
+  line2?: string | null;
+  city?: string | null;
+  state?: string | null;
+  country?: string | null;
+  type?: string | null;
+  zip?: string | null;
+  formattedAddress?: string | null;
+}
+
+export interface UpdateHotelInput {
+  name?: string | null;
+  picture?: any | null;
+  thumbnailUrl?: string | null;
+  category?: string | null;
+  description?: string | null;
+  address?: UpdateAddressInput[] | null;
+}
 
 //==============================================================
 // END Enums and Input Objects

@@ -15,7 +15,6 @@ export const viewHotelQuery = gql`
       name
       description
       thumbnailUrl
-      address
       owner {
         id
         email

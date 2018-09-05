@@ -1,10 +1,23 @@
+input UpdateAddressInput {
+  lat: Float!
+  lng: Float!
+  line1: String
+  line2: String
+  city: String
+  state: String
+  country: String
+  type: String
+  zip: String
+  formattedAddress: String
+}
+
 input UpdateHotelInput {
   name: String
   picture: Upload
   thumbnailUrl: String
   category: String
   description: String
-  address: [Address!]
+  address: [UpdateAddressInput!]
 }
 
 type Mutation {

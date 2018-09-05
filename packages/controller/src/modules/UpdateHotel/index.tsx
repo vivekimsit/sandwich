@@ -7,14 +7,14 @@ import {
   UpdateHotelMutationVariables
 } from "../../schemaTypes";
 
-export const updateHotekMutation = gql`
+export const updateHotelMutation = gql`
   mutation UpdateHotelMutation($hotelId: String!, $input: UpdateHotelInput!) {
     updateHotel(hotelId: $hotelId, input: $input)
   }
 `;
 
 export interface WithUpdateHotel {
-  updateHootel: MutationFn<UpdateHotelMutation, UpdateHotelMutationVariables>;
+  updateHotel: MutationFn<UpdateHotelMutation, UpdateHotelMutationVariables>;
 }
 
 interface Props {
@@ -25,7 +25,7 @@ export class UpdateHotel extends React.PureComponent<Props> {
   render() {
     const { children } = this.props;
     return (
-      <Mutation<UpdateHotelMutation, UpdateListingMutationVariables>
+      <Mutation<UpdateHotelMutation, UpdateHotelMutationVariables>
         mutation={updateHotelMutation}
       >
         {mutate => {

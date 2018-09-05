@@ -23,14 +23,13 @@ export class EditHotelConnector extends React.PureComponent<
           }
 
           const { id: _, owner: ___, ...hotel } = data.hotel;
-
+          console.log(hotel);
           return (
             <UpdateHotel>
               {({ updateHotel }) => (
                 <HotelForm
                   initialValues={{
-                    ...defaultHotelFormValues,
-                    ...hotel
+                    ...defaultHotelFormValues
                   }}
                   submit={async values => {
                     const { __typename: ____, ...newValues } = values as any;
