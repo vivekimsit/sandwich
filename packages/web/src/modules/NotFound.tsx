@@ -2,7 +2,7 @@ import * as React from "react";
 import Paper from "@material-ui/core/Paper";
 import { Link } from "react-router-dom";
 
-class NotFound extends React.Component {
+export class NotFound extends React.Component {
   render() {
     return (
       <Paper className="paperIn">
@@ -14,5 +14,3 @@ class NotFound extends React.Component {
     );
   }
 }
-
-export default NotFound;

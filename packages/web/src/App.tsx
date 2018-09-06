@@ -107,7 +107,11 @@ class App extends React.Component<IProps, IState> {
                 }}
               >
                 <List>
-                  <ListItem button={true} component={Link} {...{ to: "/" }}>
+                  <ListItem
+                    button={true}
+                    component={Link}
+                    {...{ to: "/dashboard" }}
+                  >
                     <ListItemIcon>
                       <InboxIcon />
                     </ListItemIcon>
