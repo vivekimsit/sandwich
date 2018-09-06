@@ -46,4 +46,4 @@ const meQuery = gql`
   }
 `;
 
-export const AuthRoute = graphql<Props, MeQuery>(meQuery)(C);
+export const AuthRoute: any = graphql<Props, MeQuery>(meQuery)(C);

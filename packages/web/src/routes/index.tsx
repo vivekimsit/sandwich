@@ -7,20 +7,25 @@ import { CreateHotelConnector } from "../modules/hotel/create/CreateHotelConnect
 import { ViewHotelConnector } from "../modules/hotel/view/ViewHotelConnector";
 import { LoginConnector } from "../modules/login/LoginConnector";
 import NotFound from "../modules/NotFound";
+import { AuthRoute } from "@sandwich/controller";
 
 export const Routes = () => (
   <Switch>
     <Route exact={true} path="/" component={RegisterConnector} />
     <Route exact={true} path="/register" component={RegisterConnector} />
     <Route exact={true} path="/login" component={LoginConnector} />
-    <Route exact={true} path="/dashboard" component={RegisterConnector} />
-    <Route exact={true} path="/hotels" component={FindHotelsConnector} />
-    <Route
+    <AuthRoute exact={true} path="/dashboard" component={RegisterConnector} />
+    <AuthRoute exact={true} path="/hotels" component={FindHotelsConnector} />
+    <AuthRoute
       exact={true}
       path="/hotels/:hotelId"
       component={ViewHotelConnector}
     />
-    <Route exact={true} path="/hotel/create" component={CreateHotelConnector} />
+    <AuthRoute
+      exact={true}
+      path="/hotel/create"
+      component={CreateHotelConnector}
+    />
     <Route component={NotFound} />
   </Switch>
 );
