@@ -28,7 +28,10 @@ export class HotelView extends React.PureComponent<Props> {
   };
 
   render() {
-    const { hotel } = this.props;
+    const {
+      hotel,
+      hotel: { address }
+    } = this.props;
     return (
       <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
         <CardMedia
@@ -62,9 +65,18 @@ export class HotelView extends React.PureComponent<Props> {
             </TabContainer>
           )}
           {this.state.currentTab === 1 && <TabContainer>Item One</TabContainer>}
-          {this.state.currentTab === 2 && <TabContainer>Item One</TabContainer>}
+          {this.state.currentTab === 2 &&
+            (address && (
+              <TabContainer>
+                <Typography variant="headline">{address.city}</Typography>
+                <Typography variant="subheading">{address.state}</Typography>
+                <Typography variant="subheading">{address.country}</Typography>
+                <Typography variant="subheading">{address.type}</Typography>
+                <Typography variant="subheading">{address.zip}</Typography>
+              </TabContainer>
+            ))}
           <div>
-            <Link to={`/hotel/${hotel.id}/edit`}>
+            <Link to={`/hotels/${hotel.id}/edit`}>
               <Button>Edit</Button>
             </Link>
           </div>

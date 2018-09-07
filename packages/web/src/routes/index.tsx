@@ -5,6 +5,7 @@ import { RegisterConnector } from "../modules/register/RegisterConnector";
 import { FindHotelsConnector } from "../modules/hotel/find/FindHotelsConnector";
 import { CreateHotelConnector } from "../modules/hotel/create/CreateHotelConnector";
 import { ViewHotelConnector } from "../modules/hotel/view/ViewHotelConnector";
+import { EditHotelConnector } from "../modules/hotel/edit/EditHotelConnector";
 import { LoginConnector } from "../modules/login/LoginConnector";
 import { NotFound } from "../modules/NotFound";
 import { AuthRoute } from "@sandwich/controller";
@@ -21,6 +22,11 @@ export const Routes = () => (
       exact={true}
       path="/hotels/:hotelId"
       component={ViewHotelConnector}
+    />
+    <AuthRoute
+      exact={true}
+      path="/hotels/:hotelId/edit"
+      component={EditHotelConnector}
     />
     <AuthRoute
       exact={true}

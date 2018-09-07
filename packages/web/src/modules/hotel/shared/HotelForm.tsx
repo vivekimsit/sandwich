@@ -8,7 +8,7 @@ import { Page1 } from "./ui/Page1";
 const FormItem = AntForm.Item;
 
 export interface HotelFormValues {
-  pictureUrl: string | null;
+  thumbnailUrl: string | null;
   picture: ImageFile | null;
   name: string;
   description: string;
@@ -27,7 +27,7 @@ interface Props {
 }
 
 export const defaultHotelFormValues = {
-  pictureUrl: null,
+  thumbnailUrl: null,
   picture: null,
   name: "",
   description: ""
@@ -59,7 +59,7 @@ export class HotelForm extends React.PureComponent<Props, State> {
                       htmlType="submit"
                       disabled={isSubmitting}
                     >
-                      Create Hotel
+                      Save
                     </Button>
                   </div>
                 </FormItem>

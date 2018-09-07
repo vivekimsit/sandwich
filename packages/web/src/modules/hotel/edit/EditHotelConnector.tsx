@@ -29,7 +29,8 @@ export class EditHotelConnector extends React.PureComponent<
               {({ updateHotel }) => (
                 <HotelForm
                   initialValues={{
-                    ...defaultHotelFormValues
+                    ...defaultHotelFormValues,
+                    ...hotel
                   }}
                   submit={async values => {
                     const { __typename: ____, ...newValues } = values as any;
@@ -45,7 +46,7 @@ export class EditHotelConnector extends React.PureComponent<
                         hotelId
                       }
                     });
-
+                    this.props.history.push("/hotels");
                     console.log(result);
                   }}
                 />

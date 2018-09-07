@@ -74,7 +74,7 @@
   version "7.0.0-beta.51"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.0.0-beta.51.tgz#27cec2df409df60af58270ed8f6aa55409ea86f6"
 
-"@babel/runtime@7.0.0", "@babel/runtime@^7.0.0", "@babel/runtime@^7.0.0-beta.38", "@babel/runtime@^7.0.0-beta.40", "@babel/runtime@^7.0.0-beta.47", "@babel/runtime@^7.0.0-beta.51":
+"@babel/runtime@7.0.0", "@babel/runtime@^7.0.0", "@babel/runtime@^7.0.0-beta.38", "@babel/runtime@^7.0.0-beta.40", "@babel/runtime@^7.0.0-beta.51":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.0.0.tgz#adeb78fedfc855aa05bc041640f3f6f98e85424c"
   dependencies:
@@ -10958,17 +10958,6 @@ yup@^0.24.1:
     synchronous-promise "^1.0.18"
     toposort "^0.2.10"
     type-name "^2.0.1"
-
-yup@^0.25.1:
-  version "0.25.1"
-  resolved "https://registry.yarnpkg.com/yup/-/yup-0.25.1.tgz#09afe22af635fe11cf830a96ff4b906f8008f34e"
-  dependencies:
-    "@babel/runtime" "^7.0.0-beta.47"
-    fn-name "~2.0.1"
-    lodash "^4.17.10"
-    property-expr "^1.2.0"
-    synchronous-promise "^1.0.18"
-    toposort "^2.0.2"
 
 yup@^0.26.2:
   version "0.26.3"

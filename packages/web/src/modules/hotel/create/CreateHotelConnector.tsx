@@ -11,6 +11,7 @@ class C extends React.PureComponent<RouteComponentProps<{}> & WithCreateHotel> {
   ) => {
     await this.props.createHotel(values);
     setSubmitting(false);
+    this.props.history.push("/hotels");
   };
 
   render() {
