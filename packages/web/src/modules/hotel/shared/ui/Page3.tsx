@@ -2,24 +2,26 @@ import * as React from "react";
 import { Field } from "formik";
 
 import { InputField } from "../../../../modules/shared/InputField";
-import { TagField } from "../../../shared/TagField";
 
 export const Page3 = () => (
   <>
     <Field
       label="Latitude"
-      name="latitude"
+      name="lat"
       placeholder="Latitude"
       component={InputField}
-      useNumberComponent={true}
     />
     <Field
       label="Longtitude"
-      name="longitude"
+      name="lng"
       placeholder="Longitude"
       component={InputField}
-      useNumberComponent={true}
     />
-    <Field name="amenities" placeholder="Amenities" component={TagField} />
+    <Field name="line1" placeholder="Line1" component={InputField} />
+    <Field name="line2" placeholder="Line2" component={InputField} />
+    <Field name="city" placeholder="City" component={InputField} />
+    <Field name="state" placeholder="State" component={InputField} />
+    <Field name="country" placeholder="Country" component={InputField} />
+    <Field name="zip" placeholder="Zip" component={InputField} />
   </>
 );
