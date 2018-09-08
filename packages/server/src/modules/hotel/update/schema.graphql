@@ -17,7 +17,7 @@ input UpdateHotelInput {
   thumbnailUrl: String
   category: String
   description: String
-  address: [UpdateAddressInput!]
+  address: UpdateAddressInput
 }
 
 type Mutation {

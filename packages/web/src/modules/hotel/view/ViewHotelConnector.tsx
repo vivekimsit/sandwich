@@ -18,11 +18,11 @@ export class ViewHotelConnector extends React.PureComponent<
     return (
       <ViewHotel hotelId={hotelId}>
         {(data: any) => {
-          console.log(data);
           if (!data.hotel) {
             return <div>...loading</div>;
           }
           const { hotel } = data;
+          console.log(hotel);
           return <HotelView hotel={hotel} />;
         }}
       </ViewHotel>

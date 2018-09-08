@@ -1,10 +1,9 @@
 import * as React from "react";
 import { Form as AntForm, Button } from "antd";
-import { Form, Formik, FormikActions } from "formik";
+import { Form, FormikActions, withFormik, FormikProps } from "formik";
 import { ImageFile } from "react-dropzone";
 
 import { Page1 } from "./ui/Page1";
-import { Page3 } from "./ui/Page3";
 
 const FormItem = AntForm.Item;
 
@@ -13,13 +12,8 @@ export interface HotelFormValues {
   picture: ImageFile | null;
   name: string;
   description: string;
+  address?: null;
 }
-
-interface State {
-  page: number;
-}
-// tslint:disable-next-line:jsx-key
-const pages = [<Page1 />, <Page3 />];
 
 interface Props {
   initialValues?: HotelFormValues;
@@ -36,55 +30,34 @@ export const defaultHotelFormValues = {
   description: ""
 };
 
-export class HotelForm extends React.PureComponent<Props, State> {
-  state = {
-    page: 0
-  };
-
-  nextPage = () => this.setState(state => ({ page: state.page + 1 }));
-
+class C extends React.PureComponent<FormikProps<HotelFormValues> & Props> {
   render() {
-    const { submit, initialValues = defaultHotelFormValues } = this.props;
-
+    const { isSubmitting } = this.props;
     return (
-      <Formik<{}, HotelFormValues>
-        initialValues={initialValues}
-        onSubmit={submit}
-      >
-        {({ isSubmitting, values }) =>
-          console.log(values) || (
-            <Form style={{ display: "flex" }}>
-              <div style={{ width: 400, margin: "100px auto" }}>
-                {pages[this.state.page]}
-                <FormItem>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "flex-end"
-                    }}
-                  >
-                    {this.state.page === pages.length - 1 ? (
-                      <div>
-                        <Button
-                          type="primary"
-                          htmlType="submit"
-                          disabled={isSubmitting}
-                        >
-                          Save
-                        </Button>
-                      </div>
-                    ) : (
-                      <Button type="primary" onClick={this.nextPage}>
-                        next page
-                      </Button>
-                    )}
-                  </div>
-                </FormItem>
-              </div>
-            </Form>
-          )
-        }
-      </Formik>
+      <Form style={{ display: "flex" }}>
+        <div style={{ width: 400, margin: "100px auto" }}>
+          <Page1 />
+          <FormItem>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "flex-end"
+              }}
+            >
+              <Button type="primary" htmlType="submit" disabled={isSubmitting}>
+                Save
+              </Button>
+            </div>
+          </FormItem>
+        </div>
+      </Form>
     );
   }
 }
+
+export const HotelForm = withFormik<Props, HotelFormValues>({
+  mapPropsToValues: ({}) => defaultHotelFormValues,
+  handleSubmit: async (values, { props, setSubmitting, ...rest }) => {
+    await props.submit(values, { setSubmitting, ...rest });
+  }
+})(C);

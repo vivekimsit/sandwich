@@ -8,7 +8,6 @@ export const resolvers: ResolverMap = {
   },
   Query: {
     findHotels: async () => {
-      console.log("Finding hotel");
       return Hotel.find({ relations: ["address"] });
     }
   }

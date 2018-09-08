@@ -17,6 +17,21 @@ export interface MeQuery {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: CreateAddressMutation
+// ====================================================
+
+export interface CreateAddressMutation {
+  createAddress: boolean;
+}
+
+export interface CreateAddressMutationVariables {
+  input: CreateAddressInput;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL mutation operation: CreateHotelMutation
 // ====================================================
 
@@ -129,12 +144,18 @@ export interface ViewHotelQuery_viewHotel_owner {
   email: string;
 }
 
+export interface ViewHotelQuery_viewHotel_address {
+  lat: number;
+  lng: number;
+}
+
 export interface ViewHotelQuery_viewHotel {
   id: string;
   name: string;
   description: string;
   thumbnailUrl: string;
   owner: ViewHotelQuery_viewHotel_owner | null;
+  address: ViewHotelQuery_viewHotel_address | null;
 }
 
 export interface ViewHotelQuery {
@@ -151,6 +172,19 @@ export interface ViewHotelQueryVariables {
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
+
+export interface CreateAddressInput {
+  lat: number;
+  lng: number;
+  line1?: string | null;
+  line2?: string | null;
+  city?: string | null;
+  state?: string | null;
+  country?: string | null;
+  type?: string | null;
+  zip?: string | null;
+  formattedAddress?: string | null;
+}
 
 export interface UpdateAddressInput {
   lat: number;
@@ -171,7 +205,7 @@ export interface UpdateHotelInput {
   thumbnailUrl?: string | null;
   category?: string | null;
   description?: string | null;
-  address?: UpdateAddressInput[] | null;
+  address?: UpdateAddressInput | null;
 }
 
 //==============================================================

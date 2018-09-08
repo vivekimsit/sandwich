@@ -1,14 +1,15 @@
 import * as React from "react";
 import { Route, Switch } from "react-router-dom";
 
+import { AuthRoute } from "@sandwich/controller";
 import { RegisterConnector } from "../modules/register/RegisterConnector";
 import { FindHotelsConnector } from "../modules/hotel/find/FindHotelsConnector";
 import { CreateHotelConnector } from "../modules/hotel/create/CreateHotelConnector";
+import { CreateAddressConnector } from "../modules/address/create/CreateAddressConnector";
 import { ViewHotelConnector } from "../modules/hotel/view/ViewHotelConnector";
 import { EditHotelConnector } from "../modules/hotel/edit/EditHotelConnector";
 import { LoginConnector } from "../modules/login/LoginConnector";
 import { NotFound } from "../modules/NotFound";
-import { AuthRoute } from "@sandwich/controller";
 import { DashboardConnector } from "../modules/dashboard/DashboardConnector";
 
 export const Routes = () => (
@@ -32,6 +33,16 @@ export const Routes = () => (
       exact={true}
       path="/hotel/create"
       component={CreateHotelConnector}
+    />
+    <AuthRoute
+      exact={true}
+      path="/hotels/:hotelId/address/edit"
+      component={CreateAddressConnector}
+    />
+    <AuthRoute
+      exact={true}
+      path="/hotels/:hotelId/address/create"
+      component={CreateAddressConnector}
     />
     <Route component={NotFound} />
   </Switch>

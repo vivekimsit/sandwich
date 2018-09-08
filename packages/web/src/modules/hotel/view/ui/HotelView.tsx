@@ -62,6 +62,9 @@ export class HotelView extends React.PureComponent<Props> {
               <Typography variant="subheading">
                 Phone: xxxxxxxxxxxxxxx
               </Typography>
+              <Link to={`/hotels/${hotel.id}/edit`}>
+                <Button>Edit</Button>
+              </Link>
             </TabContainer>
           )}
           {this.state.currentTab === 1 && <TabContainer>Item One</TabContainer>}
@@ -69,17 +72,25 @@ export class HotelView extends React.PureComponent<Props> {
             (address && (
               <TabContainer>
                 <Typography variant="headline">{address.city}</Typography>
+                <Typography variant="subheading">{address.lat}</Typography>
+                <Typography variant="subheading">{address.lng}</Typography>
                 <Typography variant="subheading">{address.state}</Typography>
                 <Typography variant="subheading">{address.country}</Typography>
                 <Typography variant="subheading">{address.type}</Typography>
                 <Typography variant="subheading">{address.zip}</Typography>
+                <Link to={`/hotels/${hotel.id}/address/edit`}>
+                  <Button>Edit</Button>
+                </Link>
               </TabContainer>
             ))}
-          <div>
-            <Link to={`/hotels/${hotel.id}/edit`}>
-              <Button>Edit</Button>
-            </Link>
-          </div>
+          {this.state.currentTab === 2 &&
+            (!address && (
+              <TabContainer>
+                <Link to={`/hotels/${hotel.id}/address/create`}>
+                  <Button>Add Address</Button>
+                </Link>
+              </TabContainer>
+            ))}
         </div>
       </div>
     );

@@ -3,9 +3,9 @@ import {
   Column,
   BaseEntity,
   PrimaryGeneratedColumn,
-  ManyToOne
+  OneToOne
 } from "typeorm";
-import { User } from "./User";
+import { Hotel } from "./Hotel";
 
 @Entity("address")
 export class Address extends BaseEntity {
@@ -24,10 +24,10 @@ export class Address extends BaseEntity {
   @Column("varchar", { length: 100, nullable: true })
   city: string;
 
-  @Column("varchar", { length: 100 })
+  @Column("varchar", { length: 100, nullable: true })
   state: string;
 
-  @Column("varchar", { length: 100 })
+  @Column("varchar", { length: 100, nullable: true })
   country: string;
 
   @Column("varchar", { length: 50, default: "contact", nullable: false })
@@ -48,11 +48,8 @@ export class Address extends BaseEntity {
   @Column("text", { nullable: true })
   googlePlaceId: string;
 
-  @Column("uuid", { nullable: true })
-  userId: string;
-
-  @ManyToOne(() => User, user => user.addresses)
-  user: User;
+  @OneToOne(() => Hotel, hotel => hotel.address)
+  hotel: Hotel;
 
   @Column("timestamp", {
     precision: 3,

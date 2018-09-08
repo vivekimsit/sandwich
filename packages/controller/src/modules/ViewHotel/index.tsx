@@ -19,6 +19,10 @@ export const viewHotelQuery = gql`
         id
         email
       }
+      address {
+        lat
+        lng
+      }
     }
   }
 `;

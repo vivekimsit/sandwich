@@ -17,13 +17,11 @@ export class EditHotelConnector extends React.PureComponent<
     return (
       <ViewHotel hotelId={hotelId}>
         {data => {
-          console.log(data);
           if (!data.hotel) {
             return <div>...loading</div>;
           }
 
-          const { id: _, owner: ___, ...hotel } = data.hotel;
-          console.log(hotel);
+          const { id: _, owner: ___, address: address, ...hotel } = data.hotel;
           return (
             <UpdateHotel>
               {({ updateHotel }) => (
@@ -40,14 +38,13 @@ export class EditHotelConnector extends React.PureComponent<
                       newValues.thumbnailUrl = parts[parts.length - 1];
                     }
 
-                    const result = await updateHotel({
+                    await updateHotel({
                       variables: {
                         input: newValues,
                         hotelId
                       }
                     });
                     this.props.history.push("/hotels");
-                    console.log(result);
                   }}
                 />
               )}
