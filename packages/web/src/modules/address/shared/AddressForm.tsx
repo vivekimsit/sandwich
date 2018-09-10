@@ -9,6 +9,7 @@ const FormItem = AntForm.Item;
 export interface AddressFormValues {
   lat: number;
   lng: number;
+  hotelId: string;
 }
 
 interface Props {
@@ -22,7 +23,8 @@ interface Props {
 
 export const defaultAddressFormValues = {
   lat: 0,
-  lng: 0
+  lng: 0,
+  hotelId: ""
 };
 
 class C extends React.PureComponent<FormikProps<AddressFormValues> & Props> {

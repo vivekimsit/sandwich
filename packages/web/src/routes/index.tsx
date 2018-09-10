@@ -14,7 +14,7 @@ import { DashboardConnector } from "../modules/dashboard/DashboardConnector";
 
 export const Routes = () => (
   <Switch>
-    <Route exact={true} path="/" component={RegisterConnector} />
+    <Route exact={true} path="/" component={LoginConnector} />
     <Route exact={true} path="/register" component={RegisterConnector} />
     <Route exact={true} path="/login" component={LoginConnector} />
     <AuthRoute exact={true} path="/dashboard" component={DashboardConnector} />
@@ -42,6 +42,11 @@ export const Routes = () => (
     <AuthRoute
       exact={true}
       path="/hotels/:hotelId/address/create"
+      component={CreateAddressConnector}
+    />
+    <AuthRoute
+      exact={true}
+      path="/hotels/:hotelId/rooms/create"
       component={CreateAddressConnector}
     />
     <Route component={NotFound} />

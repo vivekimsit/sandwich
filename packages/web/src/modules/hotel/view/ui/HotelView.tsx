@@ -30,7 +30,8 @@ export class HotelView extends React.PureComponent<Props> {
   render() {
     const {
       hotel,
-      hotel: { address }
+      hotel: { address },
+      hotel: { rooms }
     } = this.props;
     return (
       <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
@@ -67,7 +68,16 @@ export class HotelView extends React.PureComponent<Props> {
               </Link>
             </TabContainer>
           )}
-          {this.state.currentTab === 1 && <TabContainer>Item One</TabContainer>}
+          {this.state.currentTab === 1 &&
+            (rooms && <TabContainer>Show rooms</TabContainer>)}
+          {this.state.currentTab === 1 &&
+            (!rooms && (
+              <TabContainer>
+                <Link to={`/hotels/${hotel.id}/rooms/create`}>
+                  <Button>Add room</Button>
+                </Link>
+              </TabContainer>
+            ))}
           {this.state.currentTab === 2 &&
             (address && (
               <TabContainer>

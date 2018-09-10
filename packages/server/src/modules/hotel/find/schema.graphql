@@ -18,6 +18,7 @@ type Hotel {
   thumbnailUrl: String!
   owner: User
   address: Address
+  rooms: [Room!]
 }
 
 type Query {

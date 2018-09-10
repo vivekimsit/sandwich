@@ -174,6 +174,7 @@ export interface ViewHotelQueryVariables {
 //==============================================================
 
 export interface CreateAddressInput {
+  hotelId: string;
   lat: number;
   lng: number;
   line1?: string | null;
