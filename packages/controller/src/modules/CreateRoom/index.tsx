@@ -14,15 +14,15 @@ export const createRoomMutation = gql`
   }
 `;
 
-export interface WithCreateAddress {
+export interface WithCreateRoom {
   createRoom: (variables: CreateRoomMutationVariables) => void;
 }
 
-export const withCreateAddress: any = graphql<
+export const withCreateRoom: any = graphql<
   any,
   CreateRoomMutation,
   CreateRoomMutationVariables,
-  WithCreateAddress
+  WithCreateRoom
 >(createRoomMutation, {
   props: ({ mutate }) => ({
     createRoom: async variables => {

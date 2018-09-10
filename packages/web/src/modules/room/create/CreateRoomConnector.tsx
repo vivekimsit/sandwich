@@ -11,7 +11,7 @@ class C extends React.PureComponent<
     values: RoomFormValues,
     { setSubmitting }: FormikActions<RoomFormValues>
   ) => {
-    await this.props.createAddress({
+    await this.props.createRoom({
       input: values
     });
     setSubmitting(false);

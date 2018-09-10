@@ -17,7 +17,6 @@ export interface RoomFormValues {
   beds: number;
   guests: number;
   hotelId: string;
-  amenities: string[];
 }
 
 interface Props {
@@ -39,8 +38,7 @@ export const defaultRoomFormValues = {
   beds: 0,
   guests: 0,
   latitude: 0,
-  hotelId: "",
-  amenities: []
+  hotelId: ""
 };
 
 class C extends React.PureComponent<FormikProps<RoomFormValues> & Props> {
@@ -56,7 +54,6 @@ class C extends React.PureComponent<FormikProps<RoomFormValues> & Props> {
           placeholder="Description"
           component={InputField}
         />
-        <Field name="picture" component={DropzoneField} />
         <Field
           label="Price"
           name="price"
@@ -78,6 +75,7 @@ class C extends React.PureComponent<FormikProps<RoomFormValues> & Props> {
           component={InputField}
           useNumberComponent={true}
         />
+        <Field name="picture" component={DropzoneField} />
         <FormItem style={{ display: "flex", justifyContent: "flex-end" }}>
           <Button type="primary" htmlType="submit" disabled={isSubmitting}>
             Save

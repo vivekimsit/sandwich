@@ -6,11 +6,12 @@ import { RegisterConnector } from "../modules/register/RegisterConnector";
 import { FindHotelsConnector } from "../modules/hotel/find/FindHotelsConnector";
 import { CreateHotelConnector } from "../modules/hotel/create/CreateHotelConnector";
 import { CreateAddressConnector } from "../modules/address/create/CreateAddressConnector";
+import { CreateRoomConnector } from "../modules/room/create/CreateRoomConnector";
 import { ViewHotelConnector } from "../modules/hotel/view/ViewHotelConnector";
 import { EditHotelConnector } from "../modules/hotel/edit/EditHotelConnector";
 import { LoginConnector } from "../modules/login/LoginConnector";
-import { NotFound } from "../modules/NotFound";
 import { DashboardConnector } from "../modules/dashboard/DashboardConnector";
+import { NotFound } from "../modules/NotFound";
 
 export const Routes = () => (
   <Switch>
@@ -47,7 +48,7 @@ export const Routes = () => (
     <AuthRoute
       exact={true}
       path="/hotels/:hotelId/rooms/create"
-      component={CreateAddressConnector}
+      component={CreateRoomConnector}
     />
     <Route component={NotFound} />
   </Switch>
