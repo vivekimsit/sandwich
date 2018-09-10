@@ -49,6 +49,21 @@ export interface CreateHotelMutationVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: CreateRoomMutation
+// ====================================================
+
+export interface CreateRoomMutation {
+  createRoom: boolean;
+}
+
+export interface CreateRoomMutationVariables {
+  input: CreateRoomInput;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: FindHotelsQuery
 // ====================================================
 
@@ -185,6 +200,22 @@ export interface CreateAddressInput {
   type?: string | null;
   zip?: string | null;
   formattedAddress?: string | null;
+}
+
+export interface CreateAmenityInput {
+  id: string;
+}
+
+export interface CreateRoomInput {
+  hotelId: string;
+  name: string;
+  picture?: any | null;
+  category: string;
+  description: string;
+  price: number;
+  beds: number;
+  guests: number;
+  amenities?: CreateAmenityInput[] | null;
 }
 
 export interface UpdateAddressInput {
