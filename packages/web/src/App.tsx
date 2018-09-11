@@ -1,5 +1,9 @@
 import * as React from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Link,
+  RouteComponentProps
+} from "react-router-dom";
 import {
   withStyles,
   WithStyles,
@@ -54,13 +58,22 @@ interface IState {
   isLoggedIn: boolean;
 }
 
-class App extends React.Component<IProps, IState> {
+class App extends React.Component<RouteComponentProps<{}> & IProps, IState> {
   state = {
     menuOpen: false,
     isLoggedIn: false
   };
 
-  toggleMenu = _ => this.setState({ menuOpen: !this.state.menuOpen });
+  toggleMenu = () => this.setState({ menuOpen: !this.state.menuOpen });
+
+  handleLogin = _ => {
+    window.location.href = "/login";
+  };
+
+  handleLogout = _ => {
+    this.toggleMenu();
+    window.location.href = "/logout";
+  };
 
   public render() {
     const { menuOpen } = this.state;
@@ -68,11 +81,7 @@ class App extends React.Component<IProps, IState> {
 
     return (
       <div
-        style={{
-          height: "100vh",
-          display: "flex",
-          flexDirection: "column"
-        }}
+        style={{ height: "100vh", display: "flex", flexDirection: "column" }}
       >
         <div>
           <AppBar position="static">
@@ -91,7 +100,12 @@ class App extends React.Component<IProps, IState> {
               >
                 YABI
               </Typography>
-              <Button color="inherit">Login</Button>
+              <Button color="inherit" onClick={this.handleLogin}>
+                Login
+              </Button>
+              <Button color="inherit" onClick={this.handleLogout}>
+                Logout
+              </Button>
             </Toolbar>
           </AppBar>
         </div>
@@ -102,9 +116,7 @@ class App extends React.Component<IProps, IState> {
                 open={menuOpen}
                 variant="permanent"
                 onClose={this.toggleMenu}
-                classes={{
-                  paper: classes.drawerPaper
-                }}
+                classes={{ paper: classes.drawerPaper }}
               >
                 <List>
                   <ListItem

@@ -6,6 +6,7 @@ export * from "./modules/FindHotels";
 export * from "./modules/ViewHotel";
 export * from "./modules/UpdateHotel";
 export * from "./modules/LoginController";
+export * from "./modules/LogoutController";
 export * from "./schemaTypes";
 export * from "./types/NormalizedErrorMap";
 export * from "./modules/auth/AuthRoute";

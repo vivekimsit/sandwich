@@ -11,14 +11,16 @@ import { ViewHotelConnector } from "../modules/hotel/view/ViewHotelConnector";
 import { EditHotelConnector } from "../modules/hotel/edit/EditHotelConnector";
 import { LoginConnector } from "../modules/login/LoginConnector";
 import { DashboardConnector } from "../modules/dashboard/DashboardConnector";
+import { Logout } from "../modules/logout";
 import { NotFound } from "../modules/NotFound";
 
 export const Routes = () => (
   <Switch>
-    <Route exact={true} path="/" component={LoginConnector} />
     <Route exact={true} path="/register" component={RegisterConnector} />
     <Route exact={true} path="/login" component={LoginConnector} />
+    <Route exact={true} path="/logout" component={Logout} />
     <AuthRoute exact={true} path="/dashboard" component={DashboardConnector} />
+    <AuthRoute exact={true} path="/" component={DashboardConnector} />
     <AuthRoute exact={true} path="/hotels" component={FindHotelsConnector} />
     <AuthRoute
       exact={true}
