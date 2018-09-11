@@ -60,7 +60,7 @@ interface IState {
 
 class App extends React.Component<RouteComponentProps<{}> & IProps, IState> {
   state = {
-    menuOpen: false,
+    menuOpen: true,
     isLoggedIn: false
   };
 
