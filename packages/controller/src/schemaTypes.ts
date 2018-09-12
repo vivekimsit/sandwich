@@ -195,6 +195,28 @@ export interface ViewHotelQueryVariables {
 /* tslint:disable */
 // This file was automatically generated and should not be edited.
 
+// ====================================================
+// GraphQL query operation: ViewRoomQuery
+// ====================================================
+
+export interface ViewRoomQuery_viewRoom {
+  id: string;
+  name: string;
+  description: string;
+  thumbnailUrl: string | null;
+}
+
+export interface ViewRoomQuery {
+  viewRoom: ViewRoomQuery_viewRoom | null;
+}
+
+export interface ViewRoomQueryVariables {
+  id: string;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
 //==============================================================
 // START Enums and Input Objects
 //==============================================================

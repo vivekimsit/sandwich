@@ -14,7 +14,6 @@ const MyLink = props => <Link to="/hotel/create" {...props} />;
 class C extends React.PureComponent<WithFindHotels> {
   render() {
     const { hotels, loading } = this.props;
-    console.log(hotels);
     return (
       <div>
         {loading && <div>...loading</div>}
@@ -66,4 +65,5 @@ class C extends React.PureComponent<WithFindHotels> {
     );
   }
 }
+
 export const FindHotelsConnector = withFindHotels(C);
