@@ -30,20 +30,17 @@ interface Props {
 
 export const defaultRoomFormValues = {
   name: "",
-  pictureUrl: null,
   picture: null,
   category: "",
   description: "",
   price: 0,
   beds: 0,
   guests: 0,
-  latitude: 0,
   hotelId: ""
 };
 
 class C extends React.PureComponent<FormikProps<RoomFormValues> & Props> {
   render() {
-    const { isSubmitting } = this.props;
     return (
       <Form style={{ display: "flex", flexDirection: "column" }}>
         <Field label="Hotel Id" name="hotelId" component={InputField} />
@@ -77,7 +74,7 @@ class C extends React.PureComponent<FormikProps<RoomFormValues> & Props> {
         />
         <Field name="picture" component={DropzoneField} />
         <FormItem style={{ display: "flex", justifyContent: "flex-end" }}>
-          <Button type="primary" htmlType="submit" disabled={isSubmitting}>
+          <Button type="primary" htmlType="submit">
             Save
           </Button>
         </FormItem>

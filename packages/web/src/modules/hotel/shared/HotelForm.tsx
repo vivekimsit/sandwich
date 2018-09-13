@@ -13,6 +13,7 @@ export interface HotelFormValues {
   name: string;
   description: string;
   address?: null;
+  rooms?: any[] | null;
 }
 
 interface Props {

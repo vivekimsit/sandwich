@@ -23,6 +23,13 @@ export const viewHotelQuery = gql`
         lat
         lng
       }
+      rooms {
+        name
+        description
+        price
+        beds
+        thumbnailUrl
+      }
     }
   }
 `;

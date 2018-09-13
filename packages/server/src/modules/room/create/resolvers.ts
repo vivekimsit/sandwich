@@ -10,7 +10,9 @@ export const resolvers: ResolverMap = {
       { session }
     ) => {
       const thumbnailUrl = picture ? await processUpload(picture) : null;
-
+      data.number = 42;
+      data.offerPrice = 42;
+      data.status = "available";
       const room = Room.create({
         ...data,
         thumbnailUrl

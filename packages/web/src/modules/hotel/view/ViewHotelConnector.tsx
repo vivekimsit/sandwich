@@ -22,7 +22,6 @@ export class ViewHotelConnector extends React.PureComponent<
             return <div>...loading</div>;
           }
           const { hotel } = data;
-          console.log(hotel);
           return <HotelView hotel={hotel} />;
         }}
       </ViewHotel>

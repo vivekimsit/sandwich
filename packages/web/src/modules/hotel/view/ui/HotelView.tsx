@@ -6,6 +6,8 @@ import Button from "@material-ui/core/Button";
 import { Link } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 
+import { RoomView } from "../../../room/view/ui/RoomView";
+
 const TabContainer = props => {
   return (
     <Typography component="div" style={{ padding: 8 * 3, margin: "20px 50px" }}>
@@ -33,6 +35,7 @@ export class HotelView extends React.PureComponent<Props> {
       hotel: { address },
       hotel: { rooms }
     } = this.props;
+    console.log(rooms);
     return (
       <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
         <CardMedia
@@ -69,7 +72,15 @@ export class HotelView extends React.PureComponent<Props> {
             </TabContainer>
           )}
           {this.state.currentTab === 1 &&
-            (rooms && <TabContainer>Show rooms</TabContainer>)}
+            (rooms && (
+              <TabContainer>
+                {rooms.map(r => (
+                  <div key={`room-${r.id}`}>
+                    <RoomView room={r} />
+                  </div>
+                ))}
+              </TabContainer>
+            ))}
           {this.state.currentTab === 1 &&
             (!rooms && (
               <TabContainer>

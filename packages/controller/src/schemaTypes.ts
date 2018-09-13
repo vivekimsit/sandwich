@@ -175,6 +175,14 @@ export interface ViewHotelQuery_viewHotel_address {
   lng: number;
 }
 
+export interface ViewHotelQuery_viewHotel_rooms {
+  name: string;
+  description: string;
+  price: number;
+  beds: number;
+  thumbnailUrl: string | null;
+}
+
 export interface ViewHotelQuery_viewHotel {
   id: string;
   name: string;
@@ -182,6 +190,7 @@ export interface ViewHotelQuery_viewHotel {
   thumbnailUrl: string;
   owner: ViewHotelQuery_viewHotel_owner | null;
   address: ViewHotelQuery_viewHotel_address | null;
+  rooms: ViewHotelQuery_viewHotel_rooms[] | null;
 }
 
 export interface ViewHotelQuery {
