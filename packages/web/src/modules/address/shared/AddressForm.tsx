@@ -13,7 +13,6 @@ export interface AddressFormValues {
 }
 
 interface Props {
-  hotelId: string;
   initialValues?: AddressFormValues;
   submit: (
     data: AddressFormValues,
@@ -62,7 +61,10 @@ class C extends React.PureComponent<FormikProps<AddressFormValues> & Props> {
 }
 
 export const AddressForm = withFormik<Props, AddressFormValues>({
-  mapPropsToValues: ({ hotelId }) => ({ ...defaultAddressFormValues, hotelId }),
+  mapPropsToValues: ({ initialValues }) => ({
+    ...defaultAddressFormValues,
+    ...initialValues
+  }),
   handleSubmit: async (values, { props, setSubmitting, ...rest }) => {
     await props.submit(values, { setSubmitting, ...rest });
   }

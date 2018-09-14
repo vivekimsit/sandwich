@@ -2,7 +2,11 @@ import * as React from "react";
 import { RouteComponentProps } from "react-router-dom";
 import { FormikActions } from "formik";
 import { withCreateAddress, WithCreateAddress } from "@sandwich/controller";
-import { AddressFormValues, AddressForm } from "../shared/AddressForm";
+import {
+  AddressFormValues,
+  AddressForm,
+  defaultAddressFormValues
+} from "../shared/AddressForm";
 
 class C extends React.PureComponent<
   RouteComponentProps<{ hotelId: string }> & WithCreateAddress
@@ -24,7 +28,15 @@ class C extends React.PureComponent<
         params: { hotelId }
       }
     } = this.props;
-    return <AddressForm hotelId={hotelId} submit={this.submit} />;
+    return (
+      <AddressForm
+        initialValues={{
+          ...defaultAddressFormValues,
+          hotelId
+        }}
+        submit={this.submit}
+      />
+    );
   }
 }
 

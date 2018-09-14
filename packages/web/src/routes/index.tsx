@@ -58,7 +58,7 @@ export const Routes = () => (
     <AuthRoute
       exact={true}
       path="/hotels/:hotelId/address/edit"
-      component={CreateAddressConnector}
+      component={EditAddressConnector}
     />
     <AuthRoute
       exact={true}
