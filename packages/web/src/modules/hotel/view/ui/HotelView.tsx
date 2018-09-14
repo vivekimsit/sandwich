@@ -99,7 +99,7 @@ export class HotelView extends React.PureComponent<Props> {
                 <Typography variant="subheading">{address.country}</Typography>
                 <Typography variant="subheading">{address.type}</Typography>
                 <Typography variant="subheading">{address.zip}</Typography>
-                <Link to={`/hotels/${hotel.id}/address/edit`}>
+                <Link to={`/hotels/${hotel.id}/address/${address.id}/edit`}>
                   <Button>Edit</Button>
                 </Link>
               </TabContainer>

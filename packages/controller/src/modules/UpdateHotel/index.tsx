@@ -28,11 +28,7 @@ export class UpdateHotel extends React.PureComponent<Props> {
       <Mutation<UpdateHotelMutation, UpdateHotelMutationVariables>
         mutation={updateHotelMutation}
       >
-        {mutate => {
-          return children({
-            updateHotel: mutate
-          });
-        }}
+        {mutate => children({ updateHotel: mutate })}
       </Mutation>
     );
   }

@@ -4,7 +4,7 @@ import { Address } from "../../../entity/Address";
 
 export const resolvers: ResolverMap = {
   Mutation: {
-    updateRoom: async (_, { addressId, input: { ...data } }) => {
+    updateAddress: async (_, { addressId, input: { ...data } }) => {
       const {
         raw: [newAddress]
       } = await getConnection()

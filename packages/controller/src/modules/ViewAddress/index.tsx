@@ -28,7 +28,7 @@ export const viewAddressQuery = gql`
 `;
 
 export interface WithViewAddress {
-  room: ViewAddressQuery_viewAddress | null;
+  address: ViewAddressQuery_viewAddress | null;
   loading: boolean;
 }
 
@@ -46,13 +46,13 @@ export class ViewAddress extends React.PureComponent<Props> {
         variables={{ id: addressId }}
       >
         {({ data, loading }) => {
-          let room: ViewAddressQuery_viewAddress | null = null;
+          let address: ViewAddressQuery_viewAddress | null = null;
 
           if (data && data.viewAddress) {
-            room = data.viewAddress;
+            address = data.viewAddress;
           }
 
-          return children({ room, loading });
+          return children({ address, loading });
         }}
       </Query>
     );

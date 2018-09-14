@@ -28,10 +28,15 @@ export class EditAddressConnector extends React.PureComponent<
                 <AddressForm
                   initialValues={{
                     ...defaultAddressFormValues,
-                    ...address
+                    ...address,
+                    hotelId: hotel.id
                   }}
                   submit={async values => {
-                    const { __typename: ____, ...newValues } = values as any;
+                    const {
+                      __typename: ____,
+                      hotelId: ______,
+                      ...newValues
+                    } = values as any;
 
                     await updateAddress({
                       variables: {

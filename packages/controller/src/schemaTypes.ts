@@ -235,6 +235,7 @@ export interface ViewHotelQuery_viewHotel_owner {
 }
 
 export interface ViewHotelQuery_viewHotel_address {
+  id: string;
   lat: number;
   lng: number;
 }
