@@ -162,6 +162,22 @@ export interface UpdateHotelMutationVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: UpdateRoomMutation
+// ====================================================
+
+export interface UpdateRoomMutation {
+  updateRoom: boolean;
+}
+
+export interface UpdateRoomMutationVariables {
+  roomId: string;
+  input: UpdateRoomInput;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: ViewHotelQuery
 // ====================================================
 
@@ -209,11 +225,19 @@ export interface ViewHotelQueryVariables {
 // GraphQL query operation: ViewRoomQuery
 // ====================================================
 
+export interface ViewRoomQuery_viewRoom_hotel {
+  id: string;
+  name: string;
+}
+
 export interface ViewRoomQuery_viewRoom {
   id: string;
   name: string;
   description: string;
+  price: number;
+  beds: number;
   thumbnailUrl: string | null;
+  hotel: ViewRoomQuery_viewRoom_hotel;
 }
 
 export interface ViewRoomQuery {
@@ -274,6 +298,10 @@ export interface UpdateAddressInput {
   formattedAddress?: string | null;
 }
 
+export interface UpdateAmenityInput {
+  id: string;
+}
+
 export interface UpdateHotelInput {
   name?: string | null;
   picture?: any | null;
@@ -281,6 +309,18 @@ export interface UpdateHotelInput {
   category?: string | null;
   description?: string | null;
   address?: UpdateAddressInput | null;
+}
+
+export interface UpdateRoomInput {
+  name?: string | null;
+  picture?: any | null;
+  thumbnailUrl?: string | null;
+  category?: string | null;
+  description?: string | null;
+  price?: number | null;
+  beds?: number | null;
+  guests?: number | null;
+  amenities?: UpdateAmenityInput[] | null;
 }
 
 //==============================================================

@@ -4,11 +4,13 @@ input UpdateAmenityInput {
 
 input UpdateRoomInput {
   name: String
-  hotelId: String
   picture: Upload
   thumbnailUrl: String
   category: String
   description: String
+  price: Float
+  beds: Int
+  guests: Int
   amenities: [UpdateAmenityInput!]
 }
 

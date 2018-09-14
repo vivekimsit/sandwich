@@ -6,7 +6,6 @@ type Amenity {
 
 type Room {
   id: ID!
-  hotelId: String
   name: String!
   thumbnailUrl: String
   category: String!

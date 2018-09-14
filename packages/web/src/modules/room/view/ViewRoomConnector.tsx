@@ -16,7 +16,7 @@ export class ViewRoomConnector extends React.PureComponent<
     return (
       <ViewRoom roomId={roomId}>
         {({ loading, room }) => {
-          if (loading) {
+          if (loading || room == null) {
             return <div>...loading</div>;
           }
           return <RoomView room={room} />;

@@ -14,7 +14,13 @@ export const viewRoomQuery = gql`
       id
       name
       description
+      price
+      beds
       thumbnailUrl
+      hotel {
+        id
+        name
+      }
     }
   }
 `;
@@ -39,7 +45,11 @@ export class ViewRoom extends React.PureComponent<Props> {
       >
         {({ data, loading }) => {
           let room: ViewRoomQuery_viewRoom | null = null;
-          room = loading ? null : data ? data.viewRoom : null;
+
+          if (data && data.viewRoom) {
+            room = data.viewRoom;
+          }
+
           return children({ room, loading });
         }}
       </Query>

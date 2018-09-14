@@ -6,14 +6,16 @@ import { RegisterConnector } from "../modules/register/RegisterConnector";
 import { FindHotelsConnector } from "../modules/hotel/find/FindHotelsConnector";
 import { CreateHotelConnector } from "../modules/hotel/create/CreateHotelConnector";
 import { CreateAddressConnector } from "../modules/address/create/CreateAddressConnector";
-import { CreateRoomConnector } from "../modules/room/create/CreateRoomConnector";
 import { ViewHotelConnector } from "../modules/hotel/view/ViewHotelConnector";
-import { ViewRoomConnector } from "../modules/room/view/ViewRoomConnector";
 import { EditHotelConnector } from "../modules/hotel/edit/EditHotelConnector";
 import { LoginConnector } from "../modules/login/LoginConnector";
 import { DashboardConnector } from "../modules/dashboard/DashboardConnector";
 import { Logout } from "../modules/logout";
 import { NotFound } from "../modules/NotFound";
+
+import { ViewRoomConnector } from "../modules/room/view/ViewRoomConnector";
+import { CreateRoomConnector } from "../modules/room/create/CreateRoomConnector";
+import { EditRoomConnector } from "../modules/room/edit/EditRoomConnector";
 
 export const Routes = () => (
   <Switch>
@@ -32,6 +34,16 @@ export const Routes = () => (
       exact={true}
       path="/rooms/:roomId"
       component={ViewRoomConnector}
+    />
+    <AuthRoute
+      exact={true}
+      path="/hotels/:hotelId/rooms/:roomId"
+      component={ViewRoomConnector}
+    />
+    <AuthRoute
+      exact={true}
+      path="/rooms/:roomId/edit"
+      component={EditRoomConnector}
     />
     <AuthRoute
       exact={true}

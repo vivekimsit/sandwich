@@ -9,6 +9,7 @@ import { DropzoneField } from "../../../modules/shared/DropzoneField";
 const FormItem = AntForm.Item;
 
 export interface RoomFormValues {
+  thumbnailUrl: string | null;
   name: string;
   picture: ImageFile | null;
   category: string;
@@ -20,7 +21,6 @@ export interface RoomFormValues {
 }
 
 interface Props {
-  hotelId: string;
   initialValues?: RoomFormValues;
   submit: (
     data: RoomFormValues,
@@ -30,6 +30,7 @@ interface Props {
 
 export const defaultRoomFormValues = {
   name: "",
+  thumbnailUrl: null,
   picture: null,
   category: "",
   description: "",
@@ -84,7 +85,10 @@ class C extends React.PureComponent<FormikProps<RoomFormValues> & Props> {
 }
 
 export const RoomForm = withFormik<Props, RoomFormValues>({
-  mapPropsToValues: ({ hotelId }) => ({ ...defaultRoomFormValues, hotelId }),
+  mapPropsToValues: ({ initialValues }) => ({
+    ...defaultRoomFormValues,
+    ...initialValues
+  }),
   handleSubmit: async (values, { props, setSubmitting, ...rest }) => {
     await props.submit(values, { setSubmitting, ...rest });
   }
