@@ -79,11 +79,6 @@ export class HotelView extends React.PureComponent<Props> {
                     <RoomView room={r} />
                   </div>
                 ))}
-              </TabContainer>
-            ))}
-          {this.state.currentTab === 1 &&
-            (!rooms && (
-              <TabContainer>
                 <Link to={`/hotels/${hotel.id}/rooms/create`}>
                   <Button>Add room</Button>
                 </Link>

@@ -176,6 +176,7 @@ export interface ViewHotelQuery_viewHotel_address {
 }
 
 export interface ViewHotelQuery_viewHotel_rooms {
+  id: string;
   name: string;
   description: string;
   price: number;

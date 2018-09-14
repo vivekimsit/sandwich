@@ -15,7 +15,7 @@ class C extends React.PureComponent<
       input: values
     });
     setSubmitting(false);
-    this.props.history.push("/hotels");
+    this.props.history.push(`/hotels/${values.hotelId}`);
   };
 
   render() {

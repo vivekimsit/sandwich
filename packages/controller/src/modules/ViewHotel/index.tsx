@@ -24,6 +24,7 @@ export const viewHotelQuery = gql`
         lng
       }
       rooms {
+        id
         name
         description
         price
