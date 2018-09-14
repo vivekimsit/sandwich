@@ -146,6 +146,22 @@ export interface RegisterMutationVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: UpdateAddressMutation
+// ====================================================
+
+export interface UpdateAddressMutation {
+  updateAddress: boolean;
+}
+
+export interface UpdateAddressMutationVariables {
+  addressId: string;
+  input: UpdateAddressInput;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL mutation operation: UpdateHotelMutation
 // ====================================================
 
@@ -172,6 +188,38 @@ export interface UpdateRoomMutation {
 export interface UpdateRoomMutationVariables {
   roomId: string;
   input: UpdateRoomInput;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL query operation: ViewAddressQuery
+// ====================================================
+
+export interface ViewAddressQuery_viewAddress_hotel {
+  id: string;
+  name: string;
+}
+
+export interface ViewAddressQuery_viewAddress {
+  id: string;
+  lat: number;
+  lng: number;
+  line1: string | null;
+  line2: string | null;
+  state: string | null;
+  city: string | null;
+  country: string | null;
+  hotel: ViewAddressQuery_viewAddress_hotel;
+}
+
+export interface ViewAddressQuery {
+  viewAddress: ViewAddressQuery_viewAddress | null;
+}
+
+export interface ViewAddressQueryVariables {
+  id: string;
 }
 
 /* tslint:disable */
