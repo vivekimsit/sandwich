@@ -21,7 +21,7 @@ import { EditAddressConnector } from "../modules/address/edit/EditAddressConnect
 
 import { Logout } from "../modules/logout";
 import { NotFound } from "../modules/NotFound";
-import { NavBar } from "../modules/navbar/NavBar";
+import { NavBarConnector } from "../modules/navbar/NavBarConnector";
 
 const Body = styled.div`
   display: flex;
@@ -34,7 +34,7 @@ const Body = styled.div`
 export const Routes = () => (
   <BrowserRouter>
     <Body>
-      <Route component={NavBar} />
+      <Route component={NavBarConnector} />
       <Switch>
         <Route exact={true} path="/register" component={RegisterConnector} />
         <Route exact={true} path="/login" component={LoginConnector} />
