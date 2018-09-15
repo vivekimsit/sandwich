@@ -15,24 +15,38 @@ interface IProps {
 export class NavBar extends React.PureComponent<IProps> {
   public render() {
     const { currentUser } = this.props;
+    const loggedIn = currentUser && !!currentUser.email;
     return (
       <AppBar position="static">
         <Toolbar>
-          {currentUser &&
-            currentUser.email && (
-              <IconButton color="inherit" aria-label="Menu">
-                <MenuIcon />
-              </IconButton>
-            )}
+          {loggedIn && (
+            <IconButton color="inherit" aria-label="Menu">
+              <MenuIcon />
+            </IconButton>
+          )}
           <Typography variant="title" color="inherit" style={{ flexGrow: 1 }}>
             YABI
           </Typography>
-          <Link to={"/login"}>
-            <Button color="inherit">Login</Button>
-          </Link>
-          <Link to={"/logout"}>
-            <Button color="inherit">Logout</Button>
-          </Link>
+          {!loggedIn && (
+            <Button
+              color="inherit"
+              component={({ innerRef, ...props }) => (
+                <Link {...props} to="/login" />
+              )}
+            >
+              Login
+            </Button>
+          )}
+          {loggedIn && (
+            <Button
+              color="inherit"
+              component={({ innerRef, ...props }) => (
+                <Link {...props} to="/logout" />
+              )}
+            >
+              Logout
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
     );
