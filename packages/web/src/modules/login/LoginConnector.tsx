@@ -1,8 +1,17 @@
 import * as React from "react";
 import { LoginController } from "@sandwich/controller";
 import { RouteComponentProps } from "react-router-dom";
+import styled from "styled-components";
 
 import { LoginView } from "./ui/LoginView";
+
+const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px;
+`;
 
 export class LoginConnector extends React.PureComponent<
   RouteComponentProps<{}>
@@ -20,11 +29,13 @@ export class LoginConnector extends React.PureComponent<
   };
 
   render() {
-    console.log(this.props.location.state);
-
     return (
       <LoginController>
-        {({ submit }) => <LoginView onFinish={this.onFinish} submit={submit} />}
+        {({ submit }) => (
+          <Section>
+            <LoginView onFinish={this.onFinish} submit={submit} />
+          </Section>
+        )}
       </LoginController>
     );
   }
