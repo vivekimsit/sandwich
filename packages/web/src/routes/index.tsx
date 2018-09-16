@@ -57,12 +57,12 @@ export const Routes = () => (
         />
         <AuthRoute
           exact={true}
-          path="/rooms/:roomId"
-          component={ViewRoomConnector}
+          path="/hotels/:hotelId/rooms/create"
+          component={CreateRoomConnector}
         />
         <AuthRoute
           exact={true}
-          path="/hotels/:hotelId/rooms/:roomId"
+          path="/rooms/:roomId"
           component={ViewRoomConnector}
         />
         <AuthRoute
@@ -99,11 +99,6 @@ export const Routes = () => (
           exact={true}
           path="/hotels/:hotelId/address/:addressId/edit"
           component={EditAddressConnector}
-        />
-        <AuthRoute
-          exact={true}
-          path="/hotels/:hotelId/rooms/create"
-          component={CreateRoomConnector}
         />
         <Route component={NotFound} />
       </Switch>
