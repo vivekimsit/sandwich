@@ -36,11 +36,7 @@ export const withCreateHotel: any = graphql<
         return;
       }
 
-      const response = await mutate({
-        variables
-      });
-
-      console.log(response);
+      await mutate({ variables });
     }
   })
 });

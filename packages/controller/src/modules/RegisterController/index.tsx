@@ -19,19 +19,15 @@ class C extends React.PureComponent<
   ChildMutateProps<Props, RegisterMutation, RegisterMutationVariables>
 > {
   submit = async (values: RegisterMutationVariables) => {
-    console.log(values);
     const {
       data: { register }
     } = await this.props.mutate({
       variables: values
     });
-    console.log("response: ", register);
-
-    if (register) {
-      return normalizeErrors(register);
+    if (!register) {
+      return null;
     }
-
-    return null;
+    return normalizeErrors(register);
   };
 
   render() {
