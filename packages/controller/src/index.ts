@@ -4,6 +4,7 @@ export * from "./modules/CreateAddress";
 export * from "./modules/CreateRoom";
 export * from "./modules/FindHotels";
 export * from "./modules/ViewHotel";
+export * from "./modules/DeleteHotel";
 export * from "./modules/ViewRoom";
 export * from "./modules/ViewAddress";
 export * from "./modules/UpdateAddress";

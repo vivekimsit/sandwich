@@ -2,22 +2,27 @@ import * as React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import styled from "styled-components";
 
-import { AuthRoute } from "@sandwich/controller";
-import { RegisterConnector } from "../modules/register/RegisterConnector";
+// Hotel
+import { ViewHotelConnector } from "../modules/hotel/view/ViewHotelConnector";
 import { FindHotelsConnector } from "../modules/hotel/find/FindHotelsConnector";
 import { CreateHotelConnector } from "../modules/hotel/create/CreateHotelConnector";
-import { CreateAddressConnector } from "../modules/address/create/CreateAddressConnector";
-import { ViewHotelConnector } from "../modules/hotel/view/ViewHotelConnector";
 import { EditHotelConnector } from "../modules/hotel/edit/EditHotelConnector";
-import { LoginConnector } from "../modules/login/LoginConnector";
-import { DashboardConnector } from "../modules/dashboard/DashboardConnector";
+import { DeleteHotelConnector } from "../modules/hotel/delete/DeleteHotelConnector";
 
+// Room
 import { ViewRoomConnector } from "../modules/room/view/ViewRoomConnector";
 import { CreateRoomConnector } from "../modules/room/create/CreateRoomConnector";
 import { EditRoomConnector } from "../modules/room/edit/EditRoomConnector";
 
+// Address
+import { CreateAddressConnector } from "../modules/address/create/CreateAddressConnector";
 import { ViewAddressConnector } from "../modules/address/view/ViewAddressConnector";
 import { EditAddressConnector } from "../modules/address/edit/EditAddressConnector";
+
+import { AuthRoute } from "@sandwich/controller";
+import { RegisterConnector } from "../modules/register/RegisterConnector";
+import { LoginConnector } from "../modules/login/LoginConnector";
+import { DashboardConnector } from "../modules/dashboard/DashboardConnector";
 
 import { Logout } from "../modules/logout";
 import { NotFound } from "../modules/NotFound";
@@ -74,6 +79,11 @@ export const Routes = () => (
           exact={true}
           path="/hotels/:hotelId/edit"
           component={EditHotelConnector}
+        />
+        <AuthRoute
+          exact={true}
+          path="/hotels/:hotelId/delete"
+          component={DeleteHotelConnector}
         />
         <AuthRoute
           exact={true}
