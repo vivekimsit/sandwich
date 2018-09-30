@@ -111,6 +111,9 @@ export class HotelView extends React.PureComponent<Props> {
                   <Link to={`/hotels/${hotel.id}/edit`}>
                     <Button>Edit</Button>
                   </Link>
+                  <Link to={`/hotels/${hotel.id}/delete`}>
+                    <Button>Delete</Button>
+                  </Link>
                 </TabContainer>
               )}
               {this.state.currentTab === 1 &&

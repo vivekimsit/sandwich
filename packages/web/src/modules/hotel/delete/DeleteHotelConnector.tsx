@@ -4,7 +4,7 @@ import { RouteComponentProps } from "react-router-dom";
 
 import { CallDeleteHotel } from "./CallDeleteHotel";
 
-export class ViewHotelConnector extends React.PureComponent<
+export class DeleteHotelConnector extends React.PureComponent<
   RouteComponentProps<{
     hotelId: string;
   }>
