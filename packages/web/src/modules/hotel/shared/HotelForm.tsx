@@ -57,7 +57,10 @@ class C extends React.PureComponent<FormikProps<HotelFormValues> & Props> {
 }
 
 export const HotelForm = withFormik<Props, HotelFormValues>({
-  mapPropsToValues: ({}) => defaultHotelFormValues,
+  mapPropsToValues: ({ initialValues }) => ({
+    ...defaultHotelFormValues,
+    ...initialValues
+  }),
   handleSubmit: async (values, { props, setSubmitting, ...rest }) => {
     await props.submit(values, { setSubmitting, ...rest });
   }

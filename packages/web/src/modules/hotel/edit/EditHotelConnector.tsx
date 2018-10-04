@@ -64,7 +64,6 @@ export class EditHotelConnector extends React.PureComponent<
                 if (!data.hotel) {
                   return <div>...loading</div>;
                 }
-
                 const {
                   id: _,
                   owner: ___,
@@ -89,6 +88,8 @@ export class EditHotelConnector extends React.PureComponent<
                             const parts = newValues.thumbnailUrl.split("/");
                             newValues.thumbnailUrl = parts[parts.length - 1];
                           }
+
+                          delete newValues.rooms;
 
                           await updateHotel({
                             variables: {

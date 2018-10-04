@@ -11,6 +11,6 @@ export const Page1 = () => (
       placeholder="Description"
       component={InputField}
     />
-    <Field name="picture" component={DropzoneField} />
+    <Field name="thumbnailUrl" component={DropzoneField} />
   </>
 );
