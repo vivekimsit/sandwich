@@ -40,7 +40,13 @@ class C extends React.PureComponent<FormikProps<AddressFormValues> & Props> {
   render() {
     const { isSubmitting } = this.props;
     return (
-      <Form style={{ display: "flex", flexDirection: "column" }}>
+      <Form
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center"
+        }}
+      >
         <Field label="Hotel Id" name="hotelId" component={InputField} />
         <Field
           label="Latitude"
