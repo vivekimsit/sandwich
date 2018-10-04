@@ -4,7 +4,6 @@ import { RouteComponentProps } from "react-router-dom";
 import styled from "styled-components";
 
 import { AddressForm, defaultAddressFormValues } from "../shared/AddressForm";
-
 import Sidebar from "../../sidebar/Sidebar";
 
 const MainWrapper = styled.main`

@@ -1,9 +1,15 @@
 import * as React from "react";
-import CardMedia from "@material-ui/core/CardMedia";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Button from "@material-ui/core/Button";
+import AddIcon from "@material-ui/icons/Add";
+import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
 import { Link } from "react-router-dom";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
 
 import styled from "styled-components";
@@ -109,10 +115,23 @@ export class HotelView extends React.PureComponent<Props> {
                     Phone: xxxxxxxxxxxxxxx
                   </Typography>
                   <Link to={`/hotels/${hotel.id}/edit`}>
-                    <Button>Edit</Button>
+                    <Button
+                      variant="fab"
+                      color="secondary"
+                      style={{
+                        position: "fixed",
+                        bottom: 10 * 2,
+                        right: 10 * 2
+                      }}
+                    >
+                      <EditIcon />
+                    </Button>
                   </Link>
                   <Link to={`/hotels/${hotel.id}/delete`}>
-                    <Button>Delete</Button>
+                    <Button variant="contained" color="secondary">
+                      Delete
+                      <DeleteIcon />
+                    </Button>
                   </Link>
                 </TabContainer>
               )}
@@ -120,19 +139,50 @@ export class HotelView extends React.PureComponent<Props> {
                 (rooms && (
                   <TabContainer>
                     {rooms.map(r => (
-                      <div key={`room-${r.id}`}>
-                        <Typography variant="headline">{r.name}</Typography>
-                        <Typography variant="subheading">
-                          {r.description}
-                        </Typography>
-                        <Typography variant="subheading">{r.price}</Typography>
-                        <Link to={`/rooms/${r.id}`}>
-                          <Button>View</Button>
-                        </Link>
-                      </div>
+                      <Card
+                        key={`${r.id}-card`}
+                        style={{
+                          display: "flex",
+                          margin: 10,
+                          minHeight: 150
+                        }}
+                      >
+                        <CardMedia
+                          style={{ width: 151, height: 151 }}
+                          image={r.thumbnailUrl}
+                          title={r.name}
+                        />
+                        <CardContent style={{ flex: "1 0 auto" }}>
+                          <Typography variant="headline">{r.name}</Typography>
+                          <Typography variant="subheading">
+                            {r.description}
+                          </Typography>
+                          <Typography variant="subheading">
+                            {r.price}
+                          </Typography>
+                        </CardContent>
+                        <CardActions>
+                          <Link to={`/rooms/${r.id}`}>
+                            <Button>View</Button>
+                          </Link>
+                          <Link to={`/rooms/${r.id}/edit`}>
+                            <Button>Edit</Button>
+                          </Link>
+                        </CardActions>
+                      </Card>
                     ))}
                     <Link to={`/hotels/${hotel.id}/rooms/create`}>
-                      <Button>Add room</Button>
+                      <Button
+                        variant="fab"
+                        color="secondary"
+                        style={{
+                          position: "fixed",
+                          bottom: 10 * 2,
+                          right: 10 * 2
+                        }}
+                      >
+                        <AddIcon />
+                      </Button>
                     </Link>
                   </TabContainer>
                 ))}
@@ -151,7 +201,17 @@ export class HotelView extends React.PureComponent<Props> {
                     <Typography variant="subheading">{address.type}</Typography>
                     <Typography variant="subheading">{address.zip}</Typography>
                     <Link to={`/hotels/${hotel.id}/address/${address.id}/edit`}>
-                      <Button>Edit</Button>
+                      <Button
+                        variant="fab"
+                        color="secondary"
+                        style={{
+                          position: "fixed",
+                          bottom: 10 * 2,
+                          right: 10 * 2
+                        }}
+                      >
+                        <EditIcon />
+                      </Button>
                     </Link>
                   </TabContainer>
                 ))}
@@ -159,7 +219,17 @@ export class HotelView extends React.PureComponent<Props> {
                 (!address && (
                   <TabContainer>
                     <Link to={`/hotels/${hotel.id}/address/create`}>
-                      <Button>Add Address</Button>
+                      <Button
+                        variant="fab"
+                        color="secondary"
+                        style={{
+                          position: "fixed",
+                          bottom: 10 * 2,
+                          right: 10 * 2
+                        }}
+                      >
+                        <AddIcon />
+                      </Button>
                     </Link>
                   </TabContainer>
                 ))}
