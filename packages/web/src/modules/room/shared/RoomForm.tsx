@@ -43,7 +43,7 @@ export const defaultRoomFormValues = {
 class C extends React.PureComponent<FormikProps<RoomFormValues> & Props> {
   render() {
     return (
-      <Form style={{ display: "flex", flexDirection: "column" }}>
+      <Form>
         <Field label="Hotel Id" name="hotelId" component={InputField} />
         <Field name="name" placeholder="Name" component={InputField} />
         <Field name="category" placeholder="Category" component={InputField} />
