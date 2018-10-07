@@ -13,6 +13,7 @@ import { DeleteHotelConnector } from "../modules/hotel/delete/DeleteHotelConnect
 import { ViewRoomConnector } from "../modules/room/view/ViewRoomConnector";
 import { CreateRoomConnector } from "../modules/room/create/CreateRoomConnector";
 import { EditRoomConnector } from "../modules/room/edit/EditRoomConnector";
+import { DeleteRoomConnector } from "../modules/room/delete/DeleteRoomConnector";
 
 // Address
 import { CreateAddressConnector } from "../modules/address/create/CreateAddressConnector";
@@ -74,6 +75,11 @@ export const Routes = () => (
           exact={true}
           path="/rooms/:roomId/edit"
           component={EditRoomConnector}
+        />
+        <AuthRoute
+          exact={true}
+          path="/rooms/:roomId/delete"
+          component={DeleteRoomConnector}
         />
         <AuthRoute
           exact={true}

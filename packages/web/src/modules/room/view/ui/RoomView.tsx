@@ -3,6 +3,8 @@ import Typography from "@material-ui/core/Typography";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 import Sidebar from "../../../sidebar/Sidebar";
 
@@ -56,7 +58,23 @@ export class RoomView extends React.PureComponent<Props> {
             <Typography variant="subheading">{room.description}</Typography>
             <Typography variant="subheading">{room.price}</Typography>
             <Link to={`/rooms/${room.id}/edit`}>
-              <Button>Edit</Button>
+              <Button
+                variant="fab"
+                color="secondary"
+                style={{
+                  position: "fixed",
+                  bottom: 10 * 2,
+                  right: 10 * 2
+                }}
+              >
+                <EditIcon />
+              </Button>
+            </Link>
+            <Link to={`/rooms/${room.id}/delete`}>
+              <Button variant="contained" color="secondary">
+                Delete
+                <DeleteIcon />
+              </Button>
             </Link>
           </Content>
         </ContentWrapper>

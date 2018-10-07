@@ -79,6 +79,21 @@ export interface DeleteHotelMutationVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: DeleteRoomMutation
+// ====================================================
+
+export interface DeleteRoomMutation {
+  deleteRoom: boolean;
+}
+
+export interface DeleteRoomMutationVariables {
+  id: string;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: FindHotelsQuery
 // ====================================================
 
