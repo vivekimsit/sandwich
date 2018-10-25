@@ -1,17 +1,9 @@
 import * as React from "react";
 import { LoginController } from "@sandwich/controller";
 import { RouteComponentProps } from "react-router-dom";
-import styled from "styled-components";
 
 import { LoginView } from "./ui/LoginView";
-
-const Section = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding: 32px;
-`;
+import { FullscreenViewContainer } from "../../style";
 
 export class LoginConnector extends React.PureComponent<
   RouteComponentProps<{}>
@@ -32,9 +24,9 @@ export class LoginConnector extends React.PureComponent<
     return (
       <LoginController>
         {({ submit }) => (
-          <Section>
+          <FullscreenViewContainer>
             <LoginView onFinish={this.onFinish} submit={submit} />
-          </Section>
+          </FullscreenViewContainer>
         )}
       </LoginController>
     );

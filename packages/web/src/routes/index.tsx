@@ -27,7 +27,9 @@ import { DashboardConnector } from "../modules/dashboard/DashboardConnector";
 
 import { Logout } from "../modules/logout";
 import { NotFound } from "../modules/NotFound";
-import { NavBarConnector } from "../modules/navbar/NavBarConnector";
+import { ForgotPasswordView } from "../modules/forgotPassword/ui/ForgotPasswordView";
+
+import Pages from "../pages";
 
 const Body = styled.div`
   display: flex;
@@ -40,11 +42,17 @@ const Body = styled.div`
 export const Routes = () => (
   <BrowserRouter>
     <Body>
-      <Route component={NavBarConnector} />
       <Switch>
+        <Route exact={true} path="/" component={Pages} />
+        <Route exact={true} path="/about" component={Pages} />
         <Route exact={true} path="/register" component={RegisterConnector} />
         <Route exact={true} path="/login" component={LoginConnector} />
         <Route exact={true} path="/logout" component={Logout} />
+        <Route
+          exact={true}
+          path="/forgot-password"
+          component={ForgotPasswordView}
+        />
         <AuthRoute
           exact={true}
           path="/dashboard"

@@ -3,6 +3,7 @@ import { RegisterController } from "@sandwich/controller";
 import { RouteComponentProps } from "react-router-dom";
 
 import { RegisterView } from "./ui/RegisterView";
+import { FullscreenViewContainer } from "../../style";
 
 export class RegisterConnector extends React.PureComponent<
   RouteComponentProps<{}>
@@ -17,7 +18,9 @@ export class RegisterConnector extends React.PureComponent<
     return (
       <RegisterController>
         {({ submit }) => (
-          <RegisterView onFinish={this.onFinish} submit={submit} />
+          <FullscreenViewContainer>
+            <RegisterView onFinish={this.onFinish} submit={submit} />
+          </FullscreenViewContainer>
         )}
       </RegisterController>
     );
