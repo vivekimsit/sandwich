@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { Page } from "./style";
 import Home from "./home";
-import { NavBarConnector } from "../modules/navbar/NavBarConnector";
+import { NavBarConnector } from "./navbar";
 import About from "./about";
 
 interface Props {

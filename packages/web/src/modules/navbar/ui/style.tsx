@@ -1,59 +1,57 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const NavContainer = styled.div`
-  display: grid;
-  grid-template-rows: 68px;
-  grid-template-columns: auto;
-  grid-template-areas: "tabs";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 10;
+export const Label = styled.span`
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 12px;
+  @media (max-width: 360px) {
+    display: none;
+  }
 `;
 
-export const Tabs = styled.div`
+export const NavContainer = styled.div`
   display: grid;
-  padding: 0 16px;
-  color: #fff;
-  grid-template-columns: auto 1fr repeat(3, auto);
-  grid-column-gap: 32px;
-  grid-template-rows: auto;
-  grid-template-areas: "logo . features support auth";
-  align-items: center;
-  justify-items: center;
-  grid-area: tabs;
+  grid-template-columns: auto auto auto auto 1fr auto auto;
+  grid-template-rows: 1fr;
+  grid-template-areas: "logo home messages explore . notifications profile";
+  -webkit-box-align: stretch;
+  align-items: stretch;
+  width: 100%;
   line-height: 1;
-  @media (max-width: 768px) {
-    grid-template-columns: auto 1fr auto;
-    grid-template-areas: "logo . menu";
-  }
+  box-shadow: rgba(22, 23, 26, 0.15) 0px 4px 8px;
+  z-index: 3000;
+  flex: 0 0 48px;
+  padding: 0px 16px;
+  background: rgb(22, 23, 26);
 `;
 
 export const Tab = styled(Link)`
-  padding: 4px 8px;
-  font-size: 16px;
-  font-weight: 500;
+  display: grid;
+  grid-template-columns: "auto auto";
+  grid-template-rows: "auto";
+  grid-template-areas: "icon label";
+  align-items: center;
+  justify-items: center;
+  padding: 0 16px;
   color: #fff;
-  &:hover {
-    color: #e5e5e5;
-    text-shadow: none;
+  > div {
+    grid-area: icon;
+  }
+  > ${Label} {
+    grid-area: label;
+  }
+  @media (max-width: 768px) {
+    padding: 0;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: icon label;
+    align-content: center;
   }
 `;
 
-export const AuthTab = styled.div`
-  grid-area: auth;
-  > a > button {
-    color: #fff;
-    font-weight: 700;
-  }
-  > a > div {
-    box-shadow: "none";
-  }
-  @media (max-width: 768px) {
-    display: none;
-  }
+export const ProfileTab = styled(Tab)`
+  grid-area: profile;
 `;
 
 export const AboutTab = styled(Tab)`
@@ -61,4 +59,8 @@ export const AboutTab = styled(Tab)`
   @media (max-width: 768px) {
     display: none;
   }
+`;
+
+export const HomeTab = styled(Tab)`
+  grid-area: home;
 `;

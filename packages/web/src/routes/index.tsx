@@ -30,6 +30,7 @@ import { NotFound } from "../modules/NotFound";
 import { ForgotPasswordView } from "../modules/forgotPassword/ui/ForgotPasswordView";
 
 import Pages from "../pages";
+import { NavBarConnector } from "../modules/navbar/NavBarConnector";
 
 const Body = styled.div`
   display: flex;
@@ -42,6 +43,7 @@ const Body = styled.div`
 export const Routes = () => (
   <BrowserRouter>
     <Body>
+      <Route component={NavBarConnector} />
       <Switch>
         <Route exact={true} path="/" component={Pages} />
         <Route exact={true} path="/about" component={Pages} />
