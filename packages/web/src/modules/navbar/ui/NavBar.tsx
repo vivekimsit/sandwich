@@ -16,10 +16,16 @@ export class NavBar extends React.PureComponent<IProps> {
         <HomeTab to="/">
           <Label>YABI</Label>
         </HomeTab>
-        <ProfileTab to="/">
-          {!loggedIn && <Label>Login</Label>}
-          {loggedIn && <Label>Logout</Label>}
-        </ProfileTab>
+        {loggedIn && (
+          <ProfileTab to="/logout">
+            <Label>Logout</Label>
+          </ProfileTab>
+        )}
+        {!loggedIn && (
+          <ProfileTab to="/login">
+            <Label>Login</Label>
+          </ProfileTab>
+        )}
       </NavContainer>
     );
   }

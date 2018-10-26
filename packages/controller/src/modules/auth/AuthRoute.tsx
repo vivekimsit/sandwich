@@ -1,10 +1,13 @@
 import * as React from "react";
 import { graphql, ChildProps } from "react-apollo";
-import { RouteProps, Route, RouteComponentProps, Redirect } from "react-router";
+import { RouteProps, Route, RouteComponentProps } from "react-router";
 import gql from "graphql-tag";
 import { MeQuery, MeQuery_me } from "../../schemaTypes";
 
-type Props = RouteProps;
+interface Props {
+  component: React.ComponentClass;
+  fallbackComponent: React.ComponentClass;
+}
 
 const meQuery = gql`
   query MeQuery {
@@ -14,29 +17,16 @@ const meQuery = gql`
   }
 `;
 
-class C extends React.PureComponent<ChildProps<Props, MeQuery>> {
+class C extends React.PureComponent<ChildProps<Props & RouteProps, MeQuery>> {
   renderRoute = (routeProps: RouteComponentProps<{}>) => {
-    const { data, component } = this.props;
+    const { data, component, fallbackComponent } = this.props;
 
     if (!data || data.loading) {
       // loading screen
       return null;
     }
 
-    if (!data.me) {
-      // user not logged in
-      return (
-        <Redirect
-          to={{
-            pathname: "/login",
-            state: { next: routeProps.location.pathname }
-          }}
-        />
-      );
-    }
-
-    const Component = component as any;
-
+    const Component = !data.me ? fallbackComponent : component;
     return <Component {...routeProps} />;
   };
 
@@ -46,7 +36,7 @@ class C extends React.PureComponent<ChildProps<Props, MeQuery>> {
   }
 }
 
-export const AuthRoute: any = graphql<Props, MeQuery>(meQuery)(C);
+export const AuthRoute: any = graphql<Props & RouteProps, MeQuery>(meQuery)(C);
 
 export interface WithMeQuery {
   me: MeQuery_me;

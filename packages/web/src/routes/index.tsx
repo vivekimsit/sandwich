@@ -45,7 +45,12 @@ export const Routes = () => (
     <Body>
       <Route component={NavBarConnector} />
       <Switch>
-        <Route exact={true} path="/" component={Pages} />
+        <AuthRoute
+          exact={true}
+          path="/"
+          component={DashboardConnector}
+          fallbackComponent={Pages}
+        />
         <Route exact={true} path="/about" component={Pages} />
         <Route exact={true} path="/register" component={RegisterConnector} />
         <Route exact={true} path="/login" component={LoginConnector} />
