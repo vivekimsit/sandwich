@@ -14,7 +14,7 @@ export const NavContainer = styled.div`
   display: grid;
   grid-template-columns: auto auto auto auto 1fr auto auto;
   grid-template-rows: 1fr;
-  grid-template-areas: "logo home messages explore . notifications profile";
+  grid-template-areas: "logo home hotels messages . notifications profile";
   -webkit-box-align: stretch;
   align-items: stretch;
   width: 100%;
@@ -50,6 +50,14 @@ export const Tab = styled(Link)`
   }
 `;
 
+export const HomeTab = styled(Tab)`
+  grid-area: home;
+`;
+
+export const HotelsTab = styled(Tab)`
+  grid-area: hotels;
+`;
+
 export const ProfileTab = styled(Tab)`
   grid-area: profile;
 `;
@@ -59,8 +67,4 @@ export const AboutTab = styled(Tab)`
   @media (max-width: 768px) {
     display: none;
   }
-`;
-
-export const HomeTab = styled(Tab)`
-  grid-area: home;
 `;

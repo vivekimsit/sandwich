@@ -8,6 +8,7 @@ import { FindHotelsConnector } from "../modules/hotel/find/FindHotelsConnector";
 import { CreateHotelConnector } from "../modules/hotel/create/CreateHotelConnector";
 import { EditHotelConnector } from "../modules/hotel/edit/EditHotelConnector";
 import { DeleteHotelConnector } from "../modules/hotel/delete/DeleteHotelConnector";
+import { HotelSettingsView } from "../modules/hotel/settings";
 
 // Room
 import { ViewRoomConnector } from "../modules/room/view/ViewRoomConnector";
@@ -100,6 +101,11 @@ export const Routes = () => (
           exact={true}
           path="/hotels/:hotelId/edit"
           component={EditHotelConnector}
+        />
+        <AuthRoute
+          exact={true}
+          path="/hotels/:hotelId/settings"
+          component={HotelSettingsView}
         />
         <AuthRoute
           exact={true}

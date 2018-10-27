@@ -1,7 +1,7 @@
 import * as React from "react";
 import { MeQuery_me } from "@sandwich/controller";
 
-import { NavContainer, HomeTab, ProfileTab, Label } from "./style";
+import { NavContainer, HomeTab, HotelsTab, ProfileTab, Label } from "./style";
 
 interface IProps {
   currentUser: MeQuery_me;
@@ -16,6 +16,9 @@ export class NavBar extends React.PureComponent<IProps> {
         <HomeTab to="/">
           <Label>YABI</Label>
         </HomeTab>
+        <HotelsTab to="/hotels">
+          <Label>Hotels</Label>
+        </HotelsTab>
         {loggedIn && (
           <ProfileTab to="/logout">
             <Label>Logout</Label>
