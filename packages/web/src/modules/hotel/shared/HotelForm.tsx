@@ -1,13 +1,16 @@
 import * as React from "react";
 import { Form as AntForm, Button } from "antd";
-import { Form, FormikActions, withFormik, FormikProps } from "formik";
+import { FormikActions, withFormik, FormikProps, Field } from "formik";
 import { ImageFile } from "react-dropzone";
 
-import { Page1 } from "./ui/Page1";
+import { InputField } from "../../../modules/shared/InputField";
+import { DropzoneField } from "../../shared/DropzoneField";
+import { StyledForm } from "./style";
 
 const FormItem = AntForm.Item;
 
 export interface HotelFormValues {
+  id: string | null;
   thumbnailUrl: string | null;
   picture: ImageFile | null;
   name: string;
@@ -25,6 +28,7 @@ interface Props {
 }
 
 export const defaultHotelFormValues = {
+  id: null,
   thumbnailUrl: null,
   picture: null,
   name: "",
@@ -35,23 +39,20 @@ class C extends React.PureComponent<FormikProps<HotelFormValues> & Props> {
   render() {
     const { isSubmitting } = this.props;
     return (
-      <Form style={{ display: "flex" }}>
-        <div style={{ width: 400, margin: "100px auto" }}>
-          <Page1 />
-          <FormItem>
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "flex-end"
-              }}
-            >
-              <Button type="primary" htmlType="submit" disabled={isSubmitting}>
-                Save
-              </Button>
-            </div>
-          </FormItem>
-        </div>
-      </Form>
+      <StyledForm>
+        <Field name="name" placeholder="Name" component={InputField} />
+        <Field
+          name="description"
+          placeholder="Description"
+          component={InputField}
+        />
+        <Field name="thumbnailUrl" component={DropzoneField} />
+        <FormItem>
+          <Button type="primary" htmlType="submit" disabled={isSubmitting}>
+            Save
+          </Button>
+        </FormItem>
+      </StyledForm>
     );
   }
 }

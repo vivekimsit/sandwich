@@ -38,7 +38,7 @@ export const DropzoneField: React.SFC<FieldProps<any>> = ({
           })
         }
       >
-        remove
+        Remove
       </Button>
     </div>
   );
