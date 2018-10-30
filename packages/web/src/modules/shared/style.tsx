@@ -160,3 +160,30 @@ export const CoverImage = styled.div<CoverImageProps>`
   height: 96px;
   border-radius: 8px;
 `;
+
+export const HeaderText = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+`;
+
+export const Heading = styled.h1`
+  margin-left: 16px;
+  font-size: 32px;
+  color: ${theme.text.default};
+  font-weight: 600;
+  line-height: 1;
+`;
+
+export const StyledHeader = styled.div`
+  display: flex;
+  padding: 32px;
+  border-bottom: 1px solid ${theme.bg.border};
+  background: ${theme.bg.default};
+  width: 100%;
+  align-items: center;
+  flex: none;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;

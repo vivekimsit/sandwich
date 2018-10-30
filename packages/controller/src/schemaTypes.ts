@@ -268,6 +268,11 @@ export interface ViewHotelQuery_viewHotel_address {
   id: string;
   lat: number;
   lng: number;
+  line1: string | null;
+  line2: string | null;
+  state: string | null;
+  city: string | null;
+  country: string | null;
 }
 
 export interface ViewHotelQuery_viewHotel_rooms {

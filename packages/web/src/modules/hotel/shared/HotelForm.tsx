@@ -6,6 +6,7 @@ import { ImageFile } from "react-dropzone";
 import { InputField } from "../../../modules/shared/InputField";
 import { DropzoneField } from "../../shared/DropzoneField";
 import { StyledForm } from "./style";
+import { H2 } from "../../../style";
 
 const FormItem = AntForm.Item;
 
@@ -40,18 +41,32 @@ class C extends React.PureComponent<FormikProps<HotelFormValues> & Props> {
     const { isSubmitting } = this.props;
     return (
       <StyledForm>
-        <Field name="name" placeholder="Name" component={InputField} />
-        <Field
-          name="description"
-          placeholder="Description"
-          component={InputField}
-        />
-        <Field name="thumbnailUrl" component={DropzoneField} />
+        <H2>Hotel Settings</H2>
         <FormItem>
-          <Button type="primary" htmlType="submit" disabled={isSubmitting}>
-            Save
-          </Button>
+          <Field name="thumbnailUrl" component={DropzoneField} />
         </FormItem>
+        <FormItem label="Name">
+          <Field name="name" placeholder="Name" component={InputField} />
+        </FormItem>
+        <FormItem label="Description">
+          <Field
+            name="description"
+            placeholder="Description"
+            component={InputField}
+          />
+        </FormItem>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <FormItem>
+            <Button type="danger" icon="delete">
+              Delete
+            </Button>
+          </FormItem>
+          <FormItem>
+            <Button type="primary" htmlType="submit" disabled={isSubmitting}>
+              Save
+            </Button>
+          </FormItem>
+        </div>
       </StyledForm>
     );
   }

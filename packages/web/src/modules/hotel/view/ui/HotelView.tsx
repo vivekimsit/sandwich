@@ -1,8 +1,6 @@
 import * as React from "react";
 import Button from "@material-ui/core/Button";
-import AddIcon from "@material-ui/icons/Add";
 import SettingsIcon from "@material-ui/icons/Settings";
-import EditIcon from "@material-ui/icons/Edit";
 import { Link } from "react-router-dom";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
@@ -72,28 +70,14 @@ export class HotelView extends React.PureComponent<Props> {
             ))}
           </Content>
           <Extras>
-            {!address && (
-              <Link to={`/hotels/${hotel.id}/address/create`}>
-                <Button variant="contained" color="secondary">
-                  Add Address
-                  <AddIcon />
-                </Button>
-              </Link>
-            )}
             {address && (
               <>
                 <Typography variant="headline">Address</Typography>
-                <Typography variant="headline">{address.city}</Typography>
+                <Typography variant="subheading">{address.city}</Typography>
                 <Typography variant="subheading">{address.state}</Typography>
                 <Typography variant="subheading">{address.country}</Typography>
                 <Typography variant="subheading">{address.type}</Typography>
                 <Typography variant="subheading">{address.zip}</Typography>
-                <Link to={`/hotels/${hotel.id}/address/${address.id}/edit`}>
-                  <Button variant="contained" color="secondary">
-                    Edit Address
-                    <EditIcon />
-                  </Button>
-                </Link>
               </>
             )}
           </Extras>

@@ -2,7 +2,9 @@ import * as React from "react";
 import { RouteComponentProps } from "react-router-dom";
 
 import { AppViewWrapper } from "../../../style";
-import { HotelSetting } from "./ui/HotelSetting";
+import { HotelSetting } from "./ui";
+import Header from "../../shared/Header";
+import { Wrapper } from "./style";
 
 class C extends React.PureComponent<RouteComponentProps<{ hotelId: string }>> {
   render() {
@@ -13,7 +15,10 @@ class C extends React.PureComponent<RouteComponentProps<{ hotelId: string }>> {
     } = this.props;
     return (
       <AppViewWrapper>
-        <HotelSetting hotelId={hotelId} />
+        <Wrapper>
+          <Header heading={"Settings"} />
+          <HotelSetting hotelId={hotelId} />
+        </Wrapper>
       </AppViewWrapper>
     );
   }

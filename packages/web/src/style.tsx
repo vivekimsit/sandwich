@@ -21,7 +21,6 @@ export const FlexCol = styled.div`
 
 export const H1 = styled.h1`
   ${fontStack};
-  color: #fff;
   font-weight: 900;
   font-size: 1.5rem;
   line-height: 1.25;
@@ -31,7 +30,6 @@ export const H1 = styled.h1`
 
 export const H2 = styled.h2`
   ${fontStack};
-  color: #fff;
   font-weight: 700;
   font-size: 1.25rem;
   line-height: 1.25;
