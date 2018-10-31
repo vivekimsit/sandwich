@@ -1,6 +1,6 @@
 import * as React from "react";
-import { SectionsContainer, Column, SectionCard } from "../style";
 
+import { SectionsContainer, Column, SectionCard } from "../style";
 import { ViewHotel, UpdateHotel, UpdateAddress } from "@sandwich/controller";
 import { HotelForm, defaultHotelFormValues } from "../../shared/HotelForm";
 
@@ -23,7 +23,6 @@ class C extends React.PureComponent<Props> {
             return <div>Loading</div>;
           }
           const { id: _, owner: __, address: address, ...rest } = data.hotel;
-          console.log(data);
           return (
             <SectionsContainer>
               <Column>

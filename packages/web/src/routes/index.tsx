@@ -103,7 +103,6 @@ export const Routes = () => (
           component={EditHotelConnector}
         />
         <AuthRoute
-          exact={true}
           path="/hotels/:hotelId/settings"
           component={HotelSettingsView}
         />

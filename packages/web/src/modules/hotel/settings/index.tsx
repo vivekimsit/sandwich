@@ -1,25 +1,58 @@
 import * as React from "react";
-import { RouteComponentProps } from "react-router-dom";
+import { RouteComponentProps, Route, Switch } from "react-router-dom";
 
+import { ViewHotel } from "@sandwich/controller";
 import { AppViewWrapper } from "../../../style";
-import { HotelSetting } from "./ui";
+import { HotelSetting, RoomSettings } from "./ui";
 import Header from "../../shared/Header";
 import { Wrapper } from "./style";
+import Subnav from "../../shared/subnav";
 
 class C extends React.PureComponent<RouteComponentProps<{ hotelId: string }>> {
   render() {
     const {
+      match,
       match: {
         params: { hotelId }
       }
     } = this.props;
+    const navItems = [
+      {
+        url: `/hotels/${hotelId}/settings`,
+        label: "Settings",
+        path: "settings"
+      },
+      {
+        url: `/hotels/${hotelId}/settings/rooms`,
+        label: "Rooms",
+        path: "rooms"
+      }
+    ];
     return (
-      <AppViewWrapper>
-        <Wrapper>
-          <Header heading={"Settings"} />
-          <HotelSetting hotelId={hotelId} />
-        </Wrapper>
-      </AppViewWrapper>
+      <ViewHotel hotelId={hotelId}>
+        {data => {
+          if (!data.hotel) {
+            return <div>Loading</div>;
+          }
+          const { owner: _, address: address, ...hotel } = data.hotel;
+          return (
+            <AppViewWrapper>
+              <Wrapper>
+                <Header heading={"Settings"} />
+                <Subnav items={navItems} activeTab={"settings"} />
+                <Switch>
+                  <Route path={`${match.url}/rooms`}>
+                    {<RoomSettings hotel={hotel} />}
+                  </Route>
+                  <Route path={`${match.url}`}>
+                    {<HotelSetting hotelId={hotelId} />}
+                  </Route>
+                </Switch>
+              </Wrapper>
+            </AppViewWrapper>
+          );
+        }}
+      </ViewHotel>
     );
   }
 }
