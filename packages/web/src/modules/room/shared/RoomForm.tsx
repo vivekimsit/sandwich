@@ -43,7 +43,7 @@ export const defaultRoomFormValues = {
 
 class C extends React.PureComponent<FormikProps<RoomFormValues> & Props> {
   render() {
-    const { detailView } = this.props;
+    const { detailView, isSubmitting } = this.props;
     return (
       <Form>
         <Field name="picture" component={DropzoneField} />
@@ -79,11 +79,18 @@ class C extends React.PureComponent<FormikProps<RoomFormValues> & Props> {
             />
           </>
         )}
-        <FormItem style={{ display: "flex", justifyContent: "flex-end" }}>
-          <Button type="primary" htmlType="submit">
-            Save
-          </Button>
-        </FormItem>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <FormItem>
+            <Button type="danger" icon="delete">
+              Delete
+            </Button>
+          </FormItem>
+          <FormItem>
+            <Button type="primary" htmlType="submit" disabled={isSubmitting}>
+              Save
+            </Button>
+          </FormItem>
+        </div>
       </Form>
     );
   }

@@ -8,7 +8,12 @@ export const DropzoneField: React.SFC<FieldProps<any>> = ({
   form: { setFieldValue, values, setValues }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
   ...props
 }) => {
-  const pUrl = (value ? value.preview : null) || values.pictureUrl || value;
+  const pUrl =
+    (value ? value.preview : null) ||
+    values.pictureUrl ||
+    values.thumbnailUrl ||
+    value;
+  console.log(values);
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       {!pUrl && (

@@ -31,7 +31,7 @@ export class HotelView extends React.PureComponent<Props> {
             <Typography variant="subheading">{hotel.description}</Typography>
             <Typography variant="subheading">Email: foo@example.com</Typography>
             <Typography variant="subheading">Phone: xxxxxxxxxxxxxxx</Typography>
-            <Link to={`/hotels/${hotel.id}/settings`}>
+            <Link to={`/${hotel.id}/settings`}>
               <Button variant="contained" color="secondary">
                 Settings
                 <SettingsIcon />

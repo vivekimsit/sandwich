@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { UpdateHotel } from "@sandwich/controller";
 import { HotelForm, defaultHotelFormValues } from "../../shared/HotelForm";
-import { SectionsContainer, Column, SectionCard } from "../style";
+import { SectionsContainer, Column, SectionCard } from "../../../shared/style";
 import AddressList from "./AddressList";
 
 interface Props {

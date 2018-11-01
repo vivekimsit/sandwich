@@ -343,6 +343,7 @@ export interface ViewRoomQuery_viewRoom_hotel {
 export interface ViewRoomQuery_viewRoom {
   id: string;
   name: string;
+  category: string;
   description: string;
   price: number;
   beds: number;

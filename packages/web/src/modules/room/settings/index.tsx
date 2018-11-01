@@ -1,60 +1,53 @@
 import * as React from "react";
 import { RouteComponentProps, Route, Switch } from "react-router-dom";
 
-import { ViewHotel } from "@sandwich/controller";
+import { ViewRoom } from "@sandwich/controller";
 import { AppViewWrapper } from "../../../style";
-import { HotelSetting, RoomSettings } from "./ui";
 import Header from "../../shared/Header";
-import { Wrapper } from "./style";
+import { Wrapper } from "../../hotel/settings/style";
 import Subnav from "../../shared/subnav";
+import RoomSettings from "./ui/RoomSettings";
 
-class C extends React.PureComponent<RouteComponentProps<{ hotelId: string }>> {
+class RoomSettingsView extends React.PureComponent<
+  RouteComponentProps<{ hotelId: string; roomId: string }>
+> {
   render() {
     const {
       match,
       match: {
-        params: { hotelId }
+        params: { hotelId, roomId }
       }
     } = this.props;
     const navItems = [
       {
-        url: `/${hotelId}/settings`,
+        url: `/${hotelId}/${roomId}/settings`,
         label: "Settings",
         path: "settings"
-      },
-      {
-        url: `/${hotelId}/settings/rooms`,
-        label: "Rooms",
-        path: "rooms"
       }
     ];
     return (
-      <ViewHotel hotelId={hotelId}>
-        {data => {
-          if (!data.hotel) {
-            return <div>Loading</div>;
+      <ViewRoom roomId={roomId}>
+        {({ loading, room }) => {
+          if (loading || room == null) {
+            return <div>...loading</div>;
           }
-          const { owner: _, address: address, ...hotel } = data.hotel;
           return (
             <AppViewWrapper>
               <Wrapper>
                 <Header heading={"Settings"} />
                 <Subnav items={navItems} activeTab={"settings"} />
                 <Switch>
-                  <Route path={`${match.url}/rooms`}>
-                    {<RoomSettings hotel={hotel} />}
-                  </Route>
                   <Route path={`${match.url}`}>
-                    {<HotelSetting hotel={hotel} />}
+                    {<RoomSettings room={room} />}
                   </Route>
                 </Switch>
               </Wrapper>
             </AppViewWrapper>
           );
         }}
-      </ViewHotel>
+      </ViewRoom>
     );
   }
 }
 
-export const HotelSettingsView = C;
+export default RoomSettingsView;

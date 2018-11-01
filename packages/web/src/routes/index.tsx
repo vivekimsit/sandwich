@@ -32,6 +32,7 @@ import { ForgotPasswordView } from "../modules/forgotPassword/ui/ForgotPasswordV
 
 import Pages from "../pages";
 import { NavBarConnector } from "../modules/navbar/NavBarConnector";
+import RoomSettingsView from "../modules/room/settings";
 
 const Body = styled.div`
   display: flex;
@@ -79,6 +80,12 @@ export const Routes = () => (
         />
         <AuthRoute
           exact={true}
+          path="/:hotelId/:roomId/settings"
+          component={RoomSettingsView}
+        />
+        <AuthRoute path="/:hotelId/settings" component={HotelSettingsView} />
+        <AuthRoute
+          exact={true}
           path="/hotels/:hotelId/rooms/create"
           component={CreateRoomConnector}
         />
@@ -101,10 +108,6 @@ export const Routes = () => (
           exact={true}
           path="/hotels/:hotelId/edit"
           component={EditHotelConnector}
-        />
-        <AuthRoute
-          path="/hotels/:hotelId/settings"
-          component={HotelSettingsView}
         />
         <AuthRoute
           exact={true}

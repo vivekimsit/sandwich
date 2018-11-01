@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { ViewHotelAddress, UpdateAddress } from "@sandwich/controller";
-import { SectionCard } from "../style";
+import { SectionCard } from "../../../shared/style";
 import {
   AddressForm,
   defaultAddressFormValues

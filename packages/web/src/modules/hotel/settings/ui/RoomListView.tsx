@@ -8,12 +8,13 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
 interface Props {
+  hotelId: string;
   room: any;
 }
 
 class RoomListView extends React.PureComponent<Props> {
   render() {
-    const { room } = this.props;
+    const { room, hotelId } = this.props;
     return (
       <Card
         key={`room-${room.id}`}
@@ -28,11 +29,8 @@ class RoomListView extends React.PureComponent<Props> {
           <Typography variant="subheading">{room.price}</Typography>
         </CardContent>
         <CardActions>
-          <Link to={`/rooms/${room.id}`}>
+          <Link to={`/${hotelId}/${room.id}/settings`}>
             <Button>View</Button>
-          </Link>
-          <Link to={`/rooms/${room.id}/edit`}>
-            <Button>Edit</Button>
           </Link>
         </CardActions>
       </Card>

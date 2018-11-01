@@ -2,7 +2,7 @@ import * as React from "react";
 import { FormikActions } from "formik";
 
 import { withCreateRoom, WithCreateRoom } from "@sandwich/controller";
-import { Column, SectionCard, SectionsContainer } from "../style";
+import { Column, SectionCard, SectionsContainer } from "../../../shared/style";
 import RoomListView from "./RoomListView";
 import { H2 } from "./../../../../style";
 import {
@@ -38,7 +38,7 @@ class RoomSettings extends React.Component<Props & WithCreateRoom> {
           <SectionCard>
             <H2>Rooms</H2>
             {rooms.map(r => (
-              <RoomListView key={`room-${r.id}`} room={r} />
+              <RoomListView key={`room-${r.id}`} room={r} hotelId={id} />
             ))}
           </SectionCard>
         </Column>
