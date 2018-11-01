@@ -3,7 +3,7 @@ import {
   Column,
   BaseEntity,
   PrimaryGeneratedColumn,
-  OneToOne
+  ManyToOne
 } from "typeorm";
 import { Hotel } from "./Hotel";
 
@@ -48,7 +48,7 @@ export class Address extends BaseEntity {
   @Column("text", { nullable: true })
   googlePlaceId: string;
 
-  @OneToOne(() => Hotel, hotel => hotel.address)
+  @ManyToOne(() => Hotel, hotel => hotel.address)
   hotel: Hotel;
 
   @Column("timestamp", {

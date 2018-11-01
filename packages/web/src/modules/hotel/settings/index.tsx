@@ -45,7 +45,7 @@ class C extends React.PureComponent<RouteComponentProps<{ hotelId: string }>> {
                     {<RoomSettings hotel={hotel} />}
                   </Route>
                   <Route path={`${match.url}`}>
-                    {<HotelSetting hotelId={hotelId} />}
+                    {<HotelSetting hotel={hotel} />}
                   </Route>
                 </Switch>
               </Wrapper>

@@ -1,68 +1,40 @@
 import * as React from "react";
 
-import { SectionsContainer, Column, SectionCard } from "../style";
-import { ViewHotel, UpdateHotel, UpdateAddress } from "@sandwich/controller";
+import { UpdateHotel } from "@sandwich/controller";
 import { HotelForm, defaultHotelFormValues } from "../../shared/HotelForm";
-
-import {
-  AddressForm,
-  defaultAddressFormValues
-} from "../../../address/shared/AddressForm";
+import { SectionsContainer, Column, SectionCard } from "../style";
+import AddressList from "./AddressList";
 
 interface Props {
-  hotelId: string;
+  hotel: any;
 }
 
-class C extends React.PureComponent<Props> {
+class HotelSetting extends React.PureComponent<Props> {
   render() {
-    const { hotelId } = this.props;
+    const { hotel } = this.props;
     return (
-      <ViewHotel hotelId={hotelId}>
-        {data => {
-          if (!data.hotel) {
-            return <div>Loading</div>;
-          }
-          const { id: _, owner: __, address: address, ...rest } = data.hotel;
-          return (
-            <SectionsContainer>
-              <Column>
-                <UpdateHotel>
-                  {({ updateHotel }) => (
-                    <SectionCard>
-                      <HotelForm
-                        initialValues={{ ...defaultHotelFormValues, ...rest }}
-                        submit={async values => {
-                          console.log(values);
-                        }}
-                      />
-                    </SectionCard>
-                  )}
-                </UpdateHotel>
-              </Column>
+      <SectionsContainer>
+        <Column>
+          <UpdateHotel>
+            {({ updateHotel }) => (
+              <SectionCard>
+                <HotelForm
+                  initialValues={{ ...defaultHotelFormValues, ...hotel }}
+                  submit={async values => {
+                    console.log(values);
+                  }}
+                />
+              </SectionCard>
+            )}
+          </UpdateHotel>
+        </Column>
 
-              <Column>
-                <UpdateAddress>
-                  {({ updateAddress }) => (
-                    <SectionCard>
-                      <AddressForm
-                        initialValues={{
-                          ...defaultAddressFormValues,
-                          ...address
-                        }}
-                        submit={async values => {
-                          console.log(values);
-                        }}
-                      />
-                    </SectionCard>
-                  )}
-                </UpdateAddress>
-              </Column>
-            </SectionsContainer>
-          );
-        }}
-      </ViewHotel>
+        <Column>
+          <AddressList hotelId={hotel.id} />
+        </Column>
+      </SectionsContainer>
     );
   }
 }
 
-export const HotelSetting = C;
+export default HotelSetting;

@@ -1,5 +1,4 @@
-import { HotelSetting } from "./HotelSetting";
-import { AddressSetting } from "./AddressSetting";
-import { RoomSettings } from "./RoomSettings";
+import HotelSetting from "./HotelSetting";
+import RoomSettings from "./RoomSettings";
 
-export { AddressSetting, HotelSetting, RoomSettings };
+export { HotelSetting, RoomSettings };
