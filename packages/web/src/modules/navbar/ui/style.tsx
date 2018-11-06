@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
+
+import { theme } from "../../../theme";
 
 export const Label = styled.span`
   font-size: 14px;
@@ -64,6 +66,37 @@ export const ProfileTab = styled(Tab)`
 
 export const AboutTab = styled(Tab)`
   grid-area: features;
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+interface AuthTabProps {
+  dark?: boolean;
+}
+
+export const AuthTab = styled.div<AuthTabProps>`
+  grid-area: auth;
+  color: ${props => (props.dark ? theme.text.reverse : theme.brand.alt)};
+  > a > button {
+    font-weight: 700;
+    ${props =>
+      props.dark &&
+      css`
+        color: ${theme.brand.alt};
+        background-image: none;
+        background-color: ${theme.bg.default};
+        &:hover {
+          color: ${theme.brand.default};
+          background-color: ${theme.bg.default};
+          box-shadow: 0 0 16px ${theme.brand.border};
+        }
+      `};
+  }
+  > a > div {
+    box-shadow: ${props =>
+      props.dark ? `0 0 0 2px ${theme.bg.default}` : "none"};
+  }
   @media (max-width: 768px) {
     display: none;
   }

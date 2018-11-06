@@ -8,14 +8,18 @@ class C extends React.PureComponent<WithMeQuery & RouteComponentProps<{}>> {
     const { me, loading } = this.props;
     const path = this.props.location.pathname;
 
-    console.log(me);
     if (path === "/" && (!me || !me.email)) {
+      return null;
+    }
+
+    if (path === "/about") {
       return null;
     }
 
     if (loading) {
       return <div>loading...</div>;
     }
+    console.log(this.props);
     return <NavBar currentUser={me} />;
   }
 }

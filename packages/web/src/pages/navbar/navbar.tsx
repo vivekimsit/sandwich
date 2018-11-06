@@ -1,7 +1,9 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
+
 import { MeQuery_me } from "@sandwich/controller";
 import { NavContainer, Tabs, Tab, AboutTab, AuthTab } from "./style";
+import { Button } from "../../modules/shared/buttons";
 
 interface IProps {
   currentUser: MeQuery_me;
@@ -17,9 +19,16 @@ export class NavBar extends React.PureComponent<IProps> {
         <Tabs>
           <Tab to="/">YABI</Tab>
           <AboutTab to="/about">About</AboutTab>
-          <AuthTab>
-            {!loggedIn && <Link to="/login">Login</Link>}
-            {loggedIn && <Link to="/logout">Logout</Link>}
+          <AuthTab dark={true}>
+            {loggedIn ? (
+              <Link to={"/logout"}>
+                <Button>Logout</Button>
+              </Link>
+            ) : (
+              <Link to={"/login"}>
+                <Button>Login</Button>
+              </Link>
+            )}
           </AuthTab>
         </Tabs>
       </NavContainer>

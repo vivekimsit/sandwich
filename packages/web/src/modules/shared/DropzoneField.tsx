@@ -13,7 +13,6 @@ export const DropzoneField: React.SFC<FieldProps<any>> = ({
     values.pictureUrl ||
     values.thumbnailUrl ||
     value;
-  console.log(values);
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       {!pUrl && (
