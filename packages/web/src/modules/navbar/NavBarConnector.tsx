@@ -19,7 +19,7 @@ class C extends React.PureComponent<WithMeQuery & RouteComponentProps<{}>> {
     if (loading) {
       return <div>loading...</div>;
     }
-    console.log(this.props);
+    console.log("Navbar props", this.props);
     return <NavBar currentUser={me} />;
   }
 }

@@ -35,6 +35,7 @@ class C extends React.PureComponent<RouteComponentProps<{ hotelId: string }>> {
             return <div>Loading</div>;
           }
           const { owner: _, address: address, ...hotel } = data.hotel;
+          console.log("Settings", data);
           return (
             <AppViewWrapper>
               <Wrapper>

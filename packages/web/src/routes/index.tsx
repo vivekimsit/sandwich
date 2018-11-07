@@ -34,6 +34,8 @@ import Pages from "../pages";
 import { NavBarConnector } from "../modules/navbar/NavBarConnector";
 import RoomSettingsView from "../modules/room/settings";
 
+import { UserView } from "../modules/user";
+
 const Body = styled.div`
   display: flex;
   flex-direction: column;
@@ -62,6 +64,7 @@ export const Routes = () => (
           path="/forgot-password"
           component={ForgotPasswordView}
         />
+        <Route exact={true} path="/users/:username" component={UserView} />
         <AuthRoute
           exact={true}
           path="/dashboard"

@@ -2,7 +2,6 @@ import * as React from "react";
 import styled from "styled-components";
 
 import Sidebar from "../sidebar/Sidebar";
-import { Loading } from "../shared/loading";
 
 const DashboardWrapper = styled.main`
   display: flex;
@@ -30,13 +29,6 @@ const ContentWrapper = styled.section`
 
 export class DashboardConnector extends React.Component {
   render() {
-    if (true) {
-      return (
-        <DashboardWrapper id="main">
-          <Loading size={20} />
-        </DashboardWrapper>
-      );
-    }
     return (
       <DashboardWrapper id="main">
         <Sidebar />

@@ -4,7 +4,12 @@ import { Hotel } from "../../../entity/Hotel";
 export const resolvers: ResolverMap = {
   Query: {
     viewHotel: async (_, { id }) => {
-      return Hotel.findOne({ where: { id }, relations: ["address", "rooms"] });
+      const hotel = await Hotel.findOne({
+        where: { id },
+        relations: ["address", "rooms"]
+      });
+      console.log(hotel);
+      return hotel;
     }
   }
 };
