@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import { FlexRow } from "../../../../style";
+import { theme } from "../../../../theme";
 
 export const HotelWrapper = styled(FlexRow)`
   order: 2;
@@ -17,7 +18,7 @@ export const HotelWrapper = styled(FlexRow)`
   }
 `;
 
-export const HotelContent = styled.main`
+export const Grid = styled.main`
   display: grid;
   grid-template-columns: minmax(320px, 1fr) 3fr minmax(240px, 2fr);
   grid-template-rows: 240px 1fr;
@@ -86,4 +87,39 @@ export const Content = styled(Column)`
 export const Extras = styled(Column)`
   grid-area: extras;
   margin-top: 32px;
+`;
+
+export const SegmentTabs = styled(FlexRow)`
+  align-self: stretch;
+  margin: 0 32px;
+  margin-top: 16px;
+  border-bottom: 2px solid ${theme.bg.border};
+  align-items: stretch;
+  min-height: 48px;
+
+  @media (max-width: 768px) {
+    background-color: ${theme.bg.default};
+    align-self: stretch;
+    margin: 0;
+    margin-bottom: 2px;
+  }
+`;
+
+interface SegmentProps {
+  selected: boolean;
+}
+
+export const Segment = styled(FlexRow)<SegmentProps>`
+  padding: 8px 24px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 1;
+  font-size: 18px;
+  font-weight: 500;
+
+  color: ${props => (props.selected ? theme.text.default : theme.text.alt)};
+  cursor: pointer;
+  position: relative;
+  top: 2px;
 `;
