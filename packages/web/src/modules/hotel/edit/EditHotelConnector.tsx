@@ -4,7 +4,6 @@ import { RouteComponentProps } from "react-router-dom";
 import styled from "styled-components";
 
 import { HotelForm, defaultHotelFormValues } from "../shared/HotelForm";
-import Sidebar from "../../sidebar/Sidebar";
 
 const MainWrapper = styled.main`
   display: flex;
@@ -56,7 +55,6 @@ export class EditHotelConnector extends React.PureComponent<
     } = this.props;
     return (
       <MainWrapper>
-        <Sidebar />
         <ContentWrapper>
           <Content>
             <ViewHotel hotelId={hotelId}>

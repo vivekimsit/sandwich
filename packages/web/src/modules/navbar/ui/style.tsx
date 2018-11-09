@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
+
+import { theme } from "../../../theme";
 
 export const Label = styled.span`
   font-size: 14px;
@@ -14,7 +16,7 @@ export const NavContainer = styled.div`
   display: grid;
   grid-template-columns: auto auto auto auto 1fr auto auto;
   grid-template-rows: 1fr;
-  grid-template-areas: "logo home messages explore . notifications profile";
+  grid-template-areas: "logo home hotels messages . notifications profile";
   -webkit-box-align: stretch;
   align-items: stretch;
   width: 100%;
@@ -50,6 +52,14 @@ export const Tab = styled(Link)`
   }
 `;
 
+export const HomeTab = styled(Tab)`
+  grid-area: home;
+`;
+
+export const HotelsTab = styled(Tab)`
+  grid-area: hotels;
+`;
+
 export const ProfileTab = styled(Tab)`
   grid-area: profile;
 `;
@@ -61,6 +71,33 @@ export const AboutTab = styled(Tab)`
   }
 `;
 
-export const HomeTab = styled(Tab)`
-  grid-area: home;
+interface AuthTabProps {
+  dark?: boolean;
+}
+
+export const AuthTab = styled.div<AuthTabProps>`
+  grid-area: auth;
+  color: ${props => (props.dark ? theme.text.reverse : theme.brand.alt)};
+  > a > button {
+    font-weight: 700;
+    ${props =>
+      props.dark &&
+      css`
+        color: ${theme.brand.alt};
+        background-image: none;
+        background-color: ${theme.bg.default};
+        &:hover {
+          color: ${theme.brand.default};
+          background-color: ${theme.bg.default};
+          box-shadow: 0 0 16px ${theme.brand.border};
+        }
+      `};
+  }
+  > a > div {
+    box-shadow: ${props =>
+      props.dark ? `0 0 0 2px ${theme.bg.default}` : "none"};
+  }
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;

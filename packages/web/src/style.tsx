@@ -5,9 +5,22 @@ export const fontStack = css`
     sans-serif;
 `;
 
+export const FlexRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+export const FlexCol = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+`;
+
 export const H1 = styled.h1`
   ${fontStack};
-  color: #fff;
   font-weight: 900;
   font-size: 1.5rem;
   line-height: 1.25;
@@ -17,7 +30,6 @@ export const H1 = styled.h1`
 
 export const H2 = styled.h2`
   ${fontStack};
-  color: #fff;
   font-weight: 700;
   font-size: 1.25rem;
   line-height: 1.25;
@@ -86,4 +98,42 @@ export const FullscreenContent = styled.div`
   flex-direction: column;
   padding: 32px 16px;
   flex: 1 0 auto;
+`;
+
+interface Props {
+  coverUrl: string;
+  large: boolean;
+}
+
+export const PhotoContainer = styled.div<Props>`
+  grid-area: cover;
+  position: relative;
+  width: 100%;
+  flex: 0 0 "320px";
+  background-color: #fff;
+  background-image: ${props =>
+    props.coverUrl ? `url(${props.coverUrl})` : "none"};
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: ${props => (props.large ? "0" : "12px 12px 0 0")};
+  @media (max-width: 768px) {
+    flex: 0 0 ${props => (props.large ? "160px" : "64px")};
+    border-radius: 0;
+  }
+`;
+
+export const AppViewWrapper = styled(FlexRow)`
+  order: 2;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+  overflow-y: auto;
+  flex: auto;
+  width: 100%;
+  @media (max-width: 768px) {
+    padding: 0;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
 `;

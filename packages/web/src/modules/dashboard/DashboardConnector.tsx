@@ -1,5 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
+
 import Sidebar from "../sidebar/Sidebar";
 
 const DashboardWrapper = styled.main`

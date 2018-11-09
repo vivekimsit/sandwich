@@ -16,3 +16,7 @@ type Address {
 type Query {
   viewAddress(id: String!): Address
 }
+
+type Query {
+  viewHotelAddress(id: String!): Address
+}

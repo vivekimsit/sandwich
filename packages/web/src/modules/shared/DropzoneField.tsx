@@ -8,24 +8,34 @@ export const DropzoneField: React.SFC<FieldProps<any>> = ({
   form: { setFieldValue, values, setValues }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
   ...props
 }) => {
-  const pUrl = (value ? value.preview : null) || values.pictureUrl || value;
+  const pUrl =
+    (value ? value.preview : null) ||
+    values.pictureUrl ||
+    values.thumbnailUrl ||
+    value;
   return (
-    <div>
-      <Dropzone
-        accept="image/jpeg, image/png"
-        multiple={false}
-        onDrop={([file]) => {
-          setFieldValue(name, file);
-        }}
-        {...props}
-      >
-        <p>Try dropping some files here, or click to select files to upload.</p>
-      </Dropzone>
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      {!pUrl && (
+        <Dropzone
+          accept="image/jpeg, image/png"
+          multiple={false}
+          onDrop={([file]) => {
+            setFieldValue(name, file);
+          }}
+          {...props}
+        >
+          <p>
+            Try dropping some files here, or click to select files to upload.
+          </p>
+        </Dropzone>
+      )}
       {pUrl && (
         <img
           src={pUrl}
           style={{
-            maxHeight: 200
+            maxHeight: 200,
+            marginBottom: 10,
+            marginTop: 10
           }}
         />
       )}
@@ -38,7 +48,7 @@ export const DropzoneField: React.SFC<FieldProps<any>> = ({
           })
         }
       >
-        remove
+        Remove
       </Button>
     </div>
   );

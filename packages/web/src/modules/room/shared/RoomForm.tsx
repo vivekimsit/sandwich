@@ -26,6 +26,7 @@ interface Props {
     data: RoomFormValues,
     actions: FormikActions<RoomFormValues>
   ) => Promise<void>;
+  detailView?: boolean;
 }
 
 export const defaultRoomFormValues = {
@@ -42,9 +43,10 @@ export const defaultRoomFormValues = {
 
 class C extends React.PureComponent<FormikProps<RoomFormValues> & Props> {
   render() {
+    const { detailView, isSubmitting } = this.props;
     return (
       <Form>
-        <Field label="Hotel Id" name="hotelId" component={InputField} />
+        <Field name="picture" component={DropzoneField} />
         <Field name="name" placeholder="Name" component={InputField} />
         <Field name="category" placeholder="Category" component={InputField} />
         <Field
@@ -52,33 +54,43 @@ class C extends React.PureComponent<FormikProps<RoomFormValues> & Props> {
           placeholder="Description"
           component={InputField}
         />
-        <Field
-          label="Price"
-          name="price"
-          placeholder="Price"
-          component={InputField}
-          useNumberComponent={true}
-        />
-        <Field
-          label="Beds"
-          name="beds"
-          placeholder="Beds"
-          component={InputField}
-          useNumberComponent={true}
-        />
-        <Field
-          label="Guests"
-          name="guests"
-          placeholder="Guests"
-          component={InputField}
-          useNumberComponent={true}
-        />
-        <Field name="picture" component={DropzoneField} />
-        <FormItem style={{ display: "flex", justifyContent: "flex-end" }}>
-          <Button type="primary" htmlType="submit">
-            Save
-          </Button>
-        </FormItem>
+        {detailView && (
+          <>
+            <Field
+              label="Price"
+              name="price"
+              placeholder="Price"
+              component={InputField}
+              useNumberComponent={true}
+            />
+            <Field
+              label="Beds"
+              name="beds"
+              placeholder="Beds"
+              component={InputField}
+              useNumberComponent={true}
+            />
+            <Field
+              label="Guests"
+              name="guests"
+              placeholder="Guests"
+              component={InputField}
+              useNumberComponent={true}
+            />
+          </>
+        )}
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <FormItem>
+            <Button type="danger" icon="delete">
+              Delete
+            </Button>
+          </FormItem>
+          <FormItem>
+            <Button type="primary" htmlType="submit" disabled={isSubmitting}>
+              Save
+            </Button>
+          </FormItem>
+        </div>
       </Form>
     );
   }

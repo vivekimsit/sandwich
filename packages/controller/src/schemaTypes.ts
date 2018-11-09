@@ -268,6 +268,11 @@ export interface ViewHotelQuery_viewHotel_address {
   id: string;
   lat: number;
   lng: number;
+  line1: string | null;
+  line2: string | null;
+  state: string | null;
+  city: string | null;
+  country: string | null;
 }
 
 export interface ViewHotelQuery_viewHotel_rooms {
@@ -301,6 +306,32 @@ export interface ViewHotelQueryVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: ViewHotelAddressQuery
+// ====================================================
+
+export interface ViewHotelAddressQuery_viewHotelAddress {
+  id: string;
+  lat: number;
+  lng: number;
+  line1: string | null;
+  line2: string | null;
+  state: string | null;
+  city: string | null;
+  country: string | null;
+}
+
+export interface ViewHotelAddressQuery {
+  viewHotelAddress: ViewHotelAddressQuery_viewHotelAddress | null;
+}
+
+export interface ViewHotelAddressQueryVariables {
+  id: string;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: ViewRoomQuery
 // ====================================================
 
@@ -312,6 +343,7 @@ export interface ViewRoomQuery_viewRoom_hotel {
 export interface ViewRoomQuery_viewRoom {
   id: string;
   name: string;
+  category: string;
   description: string;
   price: number;
   beds: number;

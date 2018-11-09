@@ -23,6 +23,11 @@ export const viewHotelQuery = gql`
         id
         lat
         lng
+        line1
+        line2
+        state
+        city
+        country
       }
       rooms {
         id

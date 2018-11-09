@@ -8,6 +8,7 @@ import { FindHotelsConnector } from "../modules/hotel/find/FindHotelsConnector";
 import { CreateHotelConnector } from "../modules/hotel/create/CreateHotelConnector";
 import { EditHotelConnector } from "../modules/hotel/edit/EditHotelConnector";
 import { DeleteHotelConnector } from "../modules/hotel/delete/DeleteHotelConnector";
+import { HotelSettingsView } from "../modules/hotel/settings";
 
 // Room
 import { ViewRoomConnector } from "../modules/room/view/ViewRoomConnector";
@@ -31,6 +32,9 @@ import { ForgotPasswordView } from "../modules/forgotPassword/ui/ForgotPasswordV
 
 import Pages from "../pages";
 import { NavBarConnector } from "../modules/navbar/NavBarConnector";
+import RoomSettingsView from "../modules/room/settings";
+
+import { UserView } from "../modules/user";
 
 const Body = styled.div`
   display: flex;
@@ -60,6 +64,7 @@ export const Routes = () => (
           path="/forgot-password"
           component={ForgotPasswordView}
         />
+        <Route exact={true} path="/users/:username" component={UserView} />
         <AuthRoute
           exact={true}
           path="/dashboard"
@@ -76,6 +81,12 @@ export const Routes = () => (
           path="/hotels/:hotelId"
           component={ViewHotelConnector}
         />
+        <AuthRoute
+          exact={true}
+          path="/:hotelId/:roomId/settings"
+          component={RoomSettingsView}
+        />
+        <AuthRoute path="/:hotelId/settings" component={HotelSettingsView} />
         <AuthRoute
           exact={true}
           path="/hotels/:hotelId/rooms/create"

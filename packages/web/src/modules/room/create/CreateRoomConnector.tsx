@@ -8,7 +8,6 @@ import {
   defaultRoomFormValues
 } from "../shared/RoomForm";
 import styled from "styled-components";
-import Sidebar from "../../sidebar/Sidebar";
 
 const MainWrapper = styled.main`
   display: flex;
@@ -71,7 +70,6 @@ class C extends React.PureComponent<
     } = this.props;
     return (
       <MainWrapper>
-        <Sidebar />
         <ContentWrapper>
           <Content>
             <RoomForm

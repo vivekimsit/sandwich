@@ -7,6 +7,7 @@ export * from "./modules/ViewHotel";
 export * from "./modules/DeleteHotel";
 export * from "./modules/ViewRoom";
 export * from "./modules/ViewAddress";
+export * from "./modules/ViewHotelAddress";
 export * from "./modules/UpdateAddress";
 export * from "./modules/UpdateRoom";
 export * from "./modules/DeleteRoom";

@@ -13,6 +13,7 @@ export const viewRoomQuery = gql`
     viewRoom(id: $id) {
       id
       name
+      category
       description
       price
       beds

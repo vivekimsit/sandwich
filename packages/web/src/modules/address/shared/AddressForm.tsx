@@ -1,12 +1,15 @@
 import * as React from "react";
 import { Form as AntForm, Button } from "antd";
-import { Form, Field, FormikActions, withFormik, FormikProps } from "formik";
+import { Field, FormikActions, withFormik, FormikProps } from "formik";
 
 import { InputField } from "../../../modules/shared/InputField";
+import { StyledForm } from "./style";
+import { H2 } from "../../../style";
 
 const FormItem = AntForm.Item;
 
 export interface AddressFormValues {
+  id: string | null;
   lat: number;
   lng: number;
   line1: string | null;
@@ -26,6 +29,7 @@ interface Props {
 }
 
 export const defaultAddressFormValues = {
+  id: null,
   lat: 0,
   lng: 0,
   line1: "",
@@ -40,14 +44,8 @@ class C extends React.PureComponent<FormikProps<AddressFormValues> & Props> {
   render() {
     const { isSubmitting } = this.props;
     return (
-      <Form
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center"
-        }}
-      >
-        <Field label="Hotel Id" name="hotelId" component={InputField} />
+      <StyledForm>
+        <H2>Address Settings</H2>
         <Field
           label="Latitude"
           name="lat"
@@ -60,18 +58,55 @@ class C extends React.PureComponent<FormikProps<AddressFormValues> & Props> {
           placeholder="Longitude"
           component={InputField}
         />
-        <Field name="line1" placeholder="Line1" component={InputField} />
-        <Field name="line2" placeholder="Line2" component={InputField} />
-        <Field name="city" placeholder="City" component={InputField} />
-        <Field name="state" placeholder="State" component={InputField} />
-        <Field name="country" placeholder="Country" component={InputField} />
-        <Field name="zip" placeholder="Zip" component={InputField} />
-        <FormItem style={{ display: "flex", justifyContent: "flex-end" }}>
-          <Button type="primary" htmlType="submit" disabled={isSubmitting}>
-            Save
-          </Button>
-        </FormItem>
-      </Form>
+        <Field
+          name="line1"
+          label="Line1"
+          placeholder="Line1"
+          component={InputField}
+        />
+        <Field
+          name="line2"
+          label="Line2"
+          placeholder="Line2"
+          component={InputField}
+        />
+        <Field
+          name="city"
+          label="City"
+          placeholder="City"
+          component={InputField}
+        />
+        <Field
+          name="state"
+          label="State"
+          placeholder="State"
+          component={InputField}
+        />
+        <Field
+          name="country"
+          label="Country"
+          placeholder="Country"
+          component={InputField}
+        />
+        <Field
+          name="zip"
+          label="Zip/Postcode"
+          placeholder="Zip/Postcode"
+          component={InputField}
+        />
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <FormItem>
+            <Button type="danger" icon="delete">
+              Delete
+            </Button>
+          </FormItem>
+          <FormItem>
+            <Button type="primary" htmlType="submit" disabled={isSubmitting}>
+              Save
+            </Button>
+          </FormItem>
+        </div>
+      </StyledForm>
     );
   }
 }
