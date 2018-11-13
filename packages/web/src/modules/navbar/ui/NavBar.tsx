@@ -1,7 +1,16 @@
 import * as React from "react";
 import { MeQuery_me } from "@sandwich/controller";
 
-import { NavContainer, HomeTab, HotelsTab, ProfileTab, Label } from "./style";
+import {
+  NavContainer,
+  HomeTab,
+  HotelsTab,
+  ProfileTab,
+  Label,
+  Tab,
+  ProfileDrop
+} from "./style";
+import { ProfileDropdown } from "./ProfileDropdown";
 import { Navatar } from "./Navatar";
 
 interface IProps {
@@ -20,9 +29,14 @@ export class NavBar extends React.PureComponent<IProps> {
         <HotelsTab to="/hotels">
           <Label>Hotels</Label>
         </HotelsTab>
+        <ProfileDrop>
+          <Tab to={loggedIn ? `/users/${currentUser.email}` : "/logout"}>
+            <Navatar user={currentUser} />
+          </Tab>
+          <ProfileDropdown user={currentUser} />
+        </ProfileDrop>
         <ProfileTab to={loggedIn ? `/users/${currentUser.email}` : "/logout"}>
-          {loggedIn && <Navatar user={currentUser} />}
-          {!loggedIn && <Label>Login</Label>}
+          <Navatar user={currentUser} />
         </ProfileTab>
       </NavContainer>
     );

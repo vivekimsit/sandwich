@@ -2,6 +2,7 @@ import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
 import { theme } from "../../../theme";
+import { FlexRow } from "../../../style";
 
 export const Label = styled.span`
   font-size: 14px;
@@ -96,6 +97,50 @@ export const AuthTab = styled.div<AuthTabProps>`
   > a > div {
     box-shadow: ${props =>
       props.dark ? `0 0 0 2px ${theme.bg.default}` : "none"};
+  }
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+export const DropTab = styled(FlexRow)`
+  align-items: stretch;
+  align-self: stretch;
+  position: relative;
+  flex: auto;
+  flex: 0 1;
+  @media (max-width: 768px) {
+    flex: auto;
+    justify-content: center;
+  }
+  .dropdown {
+    display: none;
+    pointer-events: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding: 8px;
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+  &:hover .dropdown,
+  .dropdown:hover {
+    display: flex;
+    pointer-events: auto;
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+`;
+
+export const ProfileDrop = styled(DropTab)`
+  grid-area: profile;
+  > a {
+    &:hover {
+      box-shadow: none;
+      transition: none;
+    }
   }
   @media (max-width: 768px) {
     display: none;
