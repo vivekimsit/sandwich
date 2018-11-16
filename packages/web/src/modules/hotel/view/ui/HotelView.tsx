@@ -2,15 +2,12 @@ import * as React from "react";
 import Button from "@material-ui/core/Button";
 import SettingsIcon from "@material-ui/icons/Settings";
 import { Link } from "react-router-dom";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import CardActions from "@material-ui/core/CardActions";
 import Typography from "@material-ui/core/Typography";
 
 import { Search } from "./Search";
 import { AppViewWrapper, PhotoContainer } from "../../../../style";
 import { Grid, Meta, Content, Extras, SegmentTabs, Segment } from "./style";
+import RoomList from "./RoomList";
 
 interface Props {
   hotel: any;
@@ -84,38 +81,9 @@ export class HotelView extends React.PureComponent<Props, State> {
             selectedView === "search" && <Search />}
 
             {// Rooms view
-            selectedView === "rooms" &&
-              rooms.map(r => (
-                <Card
-                  key={`${r.id}-card`}
-                  style={{
-                    display: "flex",
-                    margin: 10,
-                    minHeight: 150
-                  }}
-                >
-                  <CardMedia
-                    style={{ width: 151, height: 151 }}
-                    image={r.thumbnailUrl}
-                    title={r.name}
-                  />
-                  <CardContent style={{ flex: "1 0 auto" }}>
-                    <Typography variant="headline">{r.name}</Typography>
-                    <Typography variant="subheading">
-                      {r.description}
-                    </Typography>
-                    <Typography variant="subheading">{r.price}</Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Link to={`/rooms/${r.id}`}>
-                      <Button>View</Button>
-                    </Link>
-                    <Link to={`/rooms/${r.id}/edit`}>
-                      <Button>Edit</Button>
-                    </Link>
-                  </CardActions>
-                </Card>
-              ))}
+            selectedView === "rooms" && (
+              <RoomList rooms={rooms} hotelId={hotel.id} />
+            )}
             {// Bookings
             selectedView === "bookings" && <div>Bookings</div>}
           </Content>
