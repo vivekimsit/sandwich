@@ -127,9 +127,8 @@ export const AppViewWrapper = styled(FlexRow)`
   order: 2;
   align-items: flex-start;
   justify-content: center;
-  overflow: hidden;
-  overflow-y: auto;
-  flex: auto;
+  overflow: hidden auto;
+  flex: 1 1 auto;
   width: 100%;
   @media (max-width: 768px) {
     padding: 0;

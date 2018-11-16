@@ -5,43 +5,21 @@ import styled from "styled-components";
 import { withCreateHotel, WithCreateHotel } from "@sandwich/controller";
 
 import { HotelFormValues, HotelForm } from "../shared/HotelForm";
-import Sidebar from "../../sidebar/Sidebar";
+import { AppViewWrapper, FlexCol } from "../../../style";
 
-const MainWrapper = styled.main`
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  overflow-y: hidden;
-  flex: auto;
-  width: 100%;
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
-const ContentWrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  align-self: stretch;
-  justify-content: flex-start;
-  overflow-y: hidden;
-  flex: 1 1 auto;
-  width: 100%;
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
+const ContentWrapper = styled(FlexCol)`
+  margin: 32px 16px;
+  align-items: stretch;
+  min-width: 320px;
+  flex: 2 1 60%;
+  max-width: 640px;
 `;
 
 const Content = styled.div`
   display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  height: 100%;
+  background-color: #fff;
   width: 100%;
-  max-height: 100%;
-  position: relative;
-  flex: 1 1 auto;
+  height: auto;
 `;
 
 class C extends React.PureComponent<RouteComponentProps<{}> & WithCreateHotel> {
@@ -56,14 +34,13 @@ class C extends React.PureComponent<RouteComponentProps<{}> & WithCreateHotel> {
 
   render() {
     return (
-      <MainWrapper>
-        <Sidebar />
+      <AppViewWrapper id="main">
         <ContentWrapper>
           <Content>
             <HotelForm submit={this.submit} />
           </Content>
         </ContentWrapper>
-      </MainWrapper>
+      </AppViewWrapper>
     );
   }
 }
