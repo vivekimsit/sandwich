@@ -80,8 +80,7 @@ export class EditAddressConnector extends React.PureComponent<
 
                           await updateAddress({
                             variables: {
-                              input: newValues,
-                              addressId
+                              input: newValues
                             }
                           });
                           this.props.history.push(`/hotels/${hotel.id}`);

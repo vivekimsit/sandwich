@@ -8,11 +8,8 @@ import {
 } from "../../schemaTypes";
 
 export const updateAddressMutation = gql`
-  mutation UpdateAddressMutation(
-    $addressId: String!
-    $input: UpdateAddressInput!
-  ) {
-    updateAddress(addressId: $addressId, input: $input)
+  mutation UpdateAddressMutation($input: UpdateAddressInput!) {
+    updateAddress(input: $input)
   }
 `;
 

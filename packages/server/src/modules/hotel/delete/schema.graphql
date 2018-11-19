@@ -1,3 +1,7 @@
+input DeleteHotelInput {
+  id: String!
+}
+
 type Mutation {
-  deleteHotel(id: String!): Boolean!
+  deleteHotel(input: DeleteHotelInput!): Boolean!
 }

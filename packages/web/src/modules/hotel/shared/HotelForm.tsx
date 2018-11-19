@@ -26,6 +26,7 @@ interface Props {
     data: HotelFormValues,
     actions: FormikActions<HotelFormValues>
   ) => Promise<void>;
+  onDelete?: (id: string) => void;
 }
 
 export const defaultHotelFormValues = {
@@ -38,12 +39,15 @@ export const defaultHotelFormValues = {
 
 class C extends React.PureComponent<FormikProps<HotelFormValues> & Props> {
   render() {
-    const { isSubmitting } = this.props;
+    const {
+      isSubmitting,
+      values: { id }
+    } = this.props;
     return (
       <StyledForm>
         <H2>Hotel Settings</H2>
         <FormItem>
-          <Field name="thumbnailUrl" component={DropzoneField} />
+          <Field name="picture" component={DropzoneField} />
         </FormItem>
         <FormItem label="Name">
           <Field name="name" placeholder="Name" component={InputField} />
@@ -57,7 +61,16 @@ class C extends React.PureComponent<FormikProps<HotelFormValues> & Props> {
         </FormItem>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
           <FormItem>
-            <Button type="danger" icon="delete">
+            <Button
+              type="danger"
+              icon="delete"
+              onClick={() => {
+                if (!id || !this.props.onDelete) {
+                  return;
+                }
+                this.props.onDelete(id);
+              }}
+            >
               Delete
             </Button>
           </FormItem>

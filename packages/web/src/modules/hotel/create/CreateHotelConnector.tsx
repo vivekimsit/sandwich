@@ -27,6 +27,7 @@ class C extends React.PureComponent<RouteComponentProps<{}> & WithCreateHotel> {
     values: HotelFormValues,
     { setSubmitting }: FormikActions<HotelFormValues>
   ) => {
+    console.log(values);
     await this.props.createHotel(values);
     setSubmitting(false);
     this.props.history.push("/hotels");

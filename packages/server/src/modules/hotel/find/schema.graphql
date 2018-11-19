@@ -4,7 +4,7 @@ type Hotel {
   description: String!
   thumbnailUrl: String!
   owner: User
-  address: Address
+  address: [Address!]
   rooms: [Room!]
 }
 

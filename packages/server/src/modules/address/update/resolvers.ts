@@ -4,14 +4,14 @@ import { Address } from "../../../entity/Address";
 
 export const resolvers: ResolverMap = {
   Mutation: {
-    updateAddress: async (_, { addressId, input: { ...data } }) => {
+    updateAddress: async (_, { input: { ...data } }) => {
       const {
         raw: [newAddress]
       } = await getConnection()
         .createQueryBuilder()
         .update(Address)
         .set(data)
-        .where("id = :id", { id: addressId })
+        .where("id = :id", { id: data.id })
         .returning("*")
         .execute();
 

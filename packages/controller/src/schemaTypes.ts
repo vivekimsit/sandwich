@@ -72,7 +72,7 @@ export interface DeleteHotelMutation {
 }
 
 export interface DeleteHotelMutationVariables {
-  id: string;
+  input: DeleteHotelInput;
 }
 
 /* tslint:disable */
@@ -184,7 +184,6 @@ export interface UpdateAddressMutation {
 }
 
 export interface UpdateAddressMutationVariables {
-  addressId: string;
   input: UpdateAddressInput;
 }
 
@@ -290,7 +289,7 @@ export interface ViewHotelQuery_viewHotel {
   description: string;
   thumbnailUrl: string;
   owner: ViewHotelQuery_viewHotel_owner | null;
-  address: ViewHotelQuery_viewHotel_address | null;
+  address: ViewHotelQuery_viewHotel_address[] | null;
   rooms: ViewHotelQuery_viewHotel_rooms[] | null;
 }
 
@@ -396,7 +395,12 @@ export interface CreateRoomInput {
   amenities?: CreateAmenityInput[] | null;
 }
 
+export interface DeleteHotelInput {
+  id: string;
+}
+
 export interface UpdateAddressInput {
+  id?: string | null;
   lat: number;
   lng: number;
   line1?: string | null;

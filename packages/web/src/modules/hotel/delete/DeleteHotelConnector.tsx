@@ -1,8 +1,5 @@
 import * as React from "react";
-import { DeleteHotel } from "@sandwich/controller";
 import { RouteComponentProps } from "react-router-dom";
-
-import { CallDeleteHotel } from "./CallDeleteHotel";
 
 export class DeleteHotelConnector extends React.PureComponent<
   RouteComponentProps<{
@@ -19,12 +16,7 @@ export class DeleteHotelConnector extends React.PureComponent<
         params: { hotelId }
       }
     } = this.props;
-    return (
-      <DeleteHotel hotelId={hotelId}>
-        {({ remove }) => (
-          <CallDeleteHotel remove={remove} onFinish={this.onFinish} />
-        )}
-      </DeleteHotel>
-    );
+    console.log(hotelId);
+    return <div>Todo</div>;
   }
 }

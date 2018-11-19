@@ -1,32 +1,34 @@
 import gql from "graphql-tag";
-import * as React from "react";
-import { Mutation } from "react-apollo";
-import { DeleteHotelMutation } from "../../schemaTypes";
+import { graphql } from "react-apollo";
+
+import {
+  DeleteHotelMutation,
+  DeleteHotelMutationVariables
+} from "../../schemaTypes";
 
 const deleteHotelMutation = gql`
-  mutation DeleteHotelMutation($id: String!) {
-    deleteHotel(id: $id)
+  mutation DeleteHotelMutation($input: DeleteHotelInput!) {
+    deleteHotel(input: $input)
   }
 `;
 
-interface Props {
-  hotelId: string;
-  children: (
-    data: {
-      remove: () => void;
-    }
-  ) => JSX.Element | null;
+export interface WithDeleteHotel {
+  deleteHotel: (variables: DeleteHotelMutationVariables) => void;
 }
 
-export const DeleteHotel: React.SFC<Props> = ({ hotelId, children }) => (
-  <Mutation<DeleteHotelMutation, {}> mutation={deleteHotelMutation}>
-    {(mutate, { client }) =>
-      children({
-        remove: async () => {
-          await mutate({ variables: { id: hotelId } });
-          await client.resetStore();
-        }
-      })
+export const withDeleteHotel: any = graphql<
+  any,
+  DeleteHotelMutation,
+  DeleteHotelMutationVariables,
+  WithDeleteHotel
+>(deleteHotelMutation, {
+  props: ({ mutate }) => ({
+    deleteHotel: async variables => {
+      if (!mutate) {
+        return;
+      }
+
+      await mutate({ variables });
     }
-  </Mutation>
-);
+  })
+});

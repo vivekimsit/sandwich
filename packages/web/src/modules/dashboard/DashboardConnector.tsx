@@ -1,8 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
 
-import Sidebar from "../sidebar/Sidebar";
-
 const DashboardWrapper = styled.main`
   display: flex;
   align-items: flex-start;
@@ -31,7 +29,6 @@ export class DashboardConnector extends React.Component {
   render() {
     return (
       <DashboardWrapper id="main">
-        <Sidebar />
         <ContentWrapper>
           <div>Welcome to dashboard</div>
         </ContentWrapper>

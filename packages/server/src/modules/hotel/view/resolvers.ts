@@ -8,7 +8,6 @@ export const resolvers: ResolverMap = {
         where: { id },
         relations: ["address", "rooms"]
       });
-      console.log(hotel);
       return hotel;
     }
   }

@@ -29,8 +29,20 @@ class AddressList extends React.PureComponent<Props> {
                       ...defaultAddressFormValues,
                       ...address
                     }}
-                    submit={async values => {
-                      console.log(values);
+                    submit={async (values, { setSubmitting }) => {
+                      setSubmitting(true);
+                      const {
+                        __typename: ____,
+                        hotelId: ______,
+                        ...rest
+                      } = values as any;
+
+                      await updateAddress({
+                        variables: {
+                          input: rest
+                        }
+                      });
+                      setSubmitting(false);
                     }}
                   />
                 </SectionCard>

@@ -1,4 +1,5 @@
 input UpdateAddressInput {
+  id: String
   lat: Float!
   lng: Float!
   line1: String
@@ -12,5 +13,5 @@ input UpdateAddressInput {
 }
 
 type Mutation {
-  updateAddress(addressId: String!, input: UpdateAddressInput!): Boolean!
+  updateAddress(input: UpdateAddressInput!): Boolean!
 }

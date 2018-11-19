@@ -4,9 +4,7 @@ import {
   BaseEntity,
   PrimaryGeneratedColumn,
   ManyToOne,
-  OneToMany,
-  OneToOne,
-  JoinColumn
+  OneToMany
 } from "typeorm";
 import { User } from "./User";
 import { Room } from "./Room";
@@ -41,8 +39,7 @@ export class Hotel extends BaseEntity {
   @OneToMany(() => Room, room => room.hotel)
   rooms: Room[];
 
-  @OneToOne(() => Address, { cascade: true })
-  @JoinColumn()
+  @OneToMany(() => Address, address => address.hotel)
   address: Address;
 
   @Column("timestamp", {
