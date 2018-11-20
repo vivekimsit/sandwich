@@ -91,8 +91,7 @@ export class EditHotelConnector extends React.PureComponent<
 
                           await updateHotel({
                             variables: {
-                              input: newValues,
-                              hotelId
+                              input: newValues
                             }
                           });
                           this.props.history.push("/hotels");

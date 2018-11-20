@@ -29,8 +29,18 @@ class HotelSetting extends React.PureComponent<Props & WithDeleteHotel> {
               <SectionCard>
                 <HotelForm
                   initialValues={{ ...defaultHotelFormValues, ...hotel }}
-                  submit={async values => {
-                    console.log(values);
+                  submit={async (values, { setSubmitting }) => {
+                    const {
+                      rooms: _,
+                      address: __,
+                      __typename: ____,
+                      ...rest
+                    } = values as any;
+                    setSubmitting(true);
+                    await updateHotel({
+                      variables: { input: { ...rest, id: hotel.id } }
+                    });
+                    setSubmitting(false);
                   }}
                   onDelete={this.deleteHotel}
                 />

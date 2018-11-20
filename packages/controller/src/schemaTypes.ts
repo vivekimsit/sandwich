@@ -199,7 +199,6 @@ export interface UpdateHotelMutation {
 }
 
 export interface UpdateHotelMutationVariables {
-  hotelId: string;
   input: UpdateHotelInput;
 }
 
@@ -418,6 +417,7 @@ export interface UpdateAmenityInput {
 }
 
 export interface UpdateHotelInput {
+  id: string;
   name?: string | null;
   picture?: any | null;
   thumbnailUrl?: string | null;

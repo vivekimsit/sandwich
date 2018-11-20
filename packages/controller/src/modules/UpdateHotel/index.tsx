@@ -8,8 +8,8 @@ import {
 } from "../../schemaTypes";
 
 export const updateHotelMutation = gql`
-  mutation UpdateHotelMutation($hotelId: String!, $input: UpdateHotelInput!) {
-    updateHotel(hotelId: $hotelId, input: $input)
+  mutation UpdateHotelMutation($input: UpdateHotelInput!) {
+    updateHotel(input: $input)
   }
 `;
 

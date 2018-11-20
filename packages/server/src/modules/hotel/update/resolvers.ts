@@ -5,7 +5,7 @@ import { getConnection } from "typeorm";
 
 export const resolvers: ResolverMap = {
   Mutation: {
-    updateHotel: async (_, { hotelId, input: { picture, ...data } }) => {
+    updateHotel: async (_, { input: { id, picture, ...data } }) => {
       if (picture) {
         data.thumbnailUrl = await processUpload(picture);
       }
@@ -16,7 +16,7 @@ export const resolvers: ResolverMap = {
         .createQueryBuilder()
         .update(Hotel)
         .set(data)
-        .where("id = :id", { id: hotelId })
+        .where("id = :id", { id })
         .returning("*")
         .execute();
 

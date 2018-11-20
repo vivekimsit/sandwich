@@ -1,12 +1,12 @@
 input UpdateHotelInput {
+  id: String!
   name: String
   picture: Upload
   thumbnailUrl: String
   category: String
   description: String
-  address: UpdateAddressInput
 }
 
 type Mutation {
-  updateHotel(hotelId: String!, input: UpdateHotelInput!): Boolean!
+  updateHotel(input: UpdateHotelInput!): Boolean!
 }
